@@ -714,6 +714,207 @@ nav a.active, nav a:hover { color: var(--primary); }
 }
 .email-link:hover::after { width: 100%; }
 
+/* Style de la section illustrations dans le volet de détails */
+.panel-section-title {
+    font-size: 1.2rem;
+    color: var(--text-main);
+    margin-top: 25px;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.panel-illustrations-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.panel-illustration-img {
+    width: 100%;
+    height: auto;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.panel-illustration-img:hover {
+    transform: scale(1.03);
+    box-shadow: var(--shadow-md);
+}
+
+
+/* Le cadre extérieur de l'aperçu */
+.panel-illustration-pdf-container {
+    position: relative;
+    width: 100%;
+    height: 180px; /* Aligné sur la hauteur de tes images */
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    background-color: #ffffff;
+    overflow: hidden; /* CRUCIAL : Coupe l'interface du navigateur qui dépasse */
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.panel-illustration-pdf-container:hover {
+    transform: scale(1.03);
+    box-shadow: var(--shadow-md);
+}
+
+/* MASQUAGE DE L'INTERFACE NATIVE (Le Rognage) */
+.panel-illustration-pdf-object {
+    position: absolute;
+    /* On rend le composant plus grand que son cadre pour pousser les barres grises dehors */
+    width: 124%; 
+    height: 135%;
+    /* On le décale vers le haut et la gauche pour masquer le bandeau supérieur et centrer le document */
+    top: -18%;   
+    left: -12%;  
+    pointer-events: none; /* Ignore la souris */
+}
+
+/* Le voile transparent qui prend les clics */
+.panel-illustration-pdf-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 10;
+}
+
+/* Légère teinte bleue au survol pour l'effet interactif */
+.panel-illustration-pdf-container:hover .panel-illustration-pdf-overlay {
+    background: rgba(14, 165, 233, 0.04);
+}
+
+/* Active la disposition côte à côte à l'intérieur de la carte */
+.experience-card {
+    display: flex;
+    gap: 25px; /* Espace entre le cadre du logo et le texte */
+    align-items: flex-start; /* Aligne le logo vers le haut */
+}
+
+/* L'ENCADRÉ DE L'IMAGE (AGRANDI ICI) */
+.experience-logo-box {
+    width: 110px;        /* Augmenté (anciennement 80px) */
+    height: 110px;       /* Augmenté (anciennement 80px) */
+    min-width: 110px;    /* Augmenté (anciennement 80px) - Force le cadre à rester carré */
+    background-color: var(--bg-light); /* Utilise ton fond gris clair */
+    border: 1px solid var(--border-color); /* Ta bordure fine habituelle */
+    border-radius: 14px; /* Coins arrondis légèrement plus grands pour s'adapter à la taille */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 8px;        /* Un peu plus d'espace interne pour le logo */
+}
+
+/* L'image à l'intérieur du cadre */
+.experience-logo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ajuste le logo sans jamais le déformer ou le couper */
+}
+
+/* Le bloc de contenu à droite */
+.experience-details {
+    flex: 1; /* Remplit tout l'espace disponible à droite */
+}
+
+/* Supprime la marge du haut du titre uniquement dans ce cas pour l'aligner au logo */
+.experience-details .company-title {
+    margin-top: 0 !important;
+}
+
+/* RESPONSIVE MOBILE : Aligne le logo au-dessus du texte sur petits écrans */
+@media (max-width: 600px) {
+    .experience-card {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .experience-logo-box {
+        width: 85px;     /* Augmenté pour le mobile (anciennement 70px) */
+        height: 85px;    /* Augmenté pour le mobile (anciennement 70px) */
+        min-width: 85px;  /* Augmenté pour le mobile (anciennement 70px) */
+    }
+}
+
+/* Style pour les sous-parties des missions */
+.experience-subtitle {
+    font-size: 1.05rem;          /* Taille intermédiaire parfaite */
+    color: var(--text-main);     /* Couleur principale sombre */
+    font-weight: 600;            /* Semi-bold pour ressortir proprement */
+    margin-top: 18px;            /* Crée un espace avec le bloc du dessus */
+    margin-bottom: 8px;          /* Espace léger avant le texte qui suit */
+    display: flex;
+    align-items: center;
+    gap: 8px;                    /* Espace entre l'émoji et le texte */
+}
+
+/* Optionnel : On réduit un tout petit peu l'espace sous le premier titre */
+.company-title + .experience-subtitle {
+    margin-top: 12px;
+}
+
+/* CONTEXTE GLOBAL DE LA LISTE */
+.classy-list {
+    list-style: none;      /* Supprime les puces noires basiques */
+    padding-left: 0;       /* Aligne la liste proprement à gauche */
+    margin: 15px 0;
+}
+
+/* STYLE DE CHAQUE ÉLÉMENT <li> */
+.classy-list li {
+    position: relative;
+    padding-left: 26px;     /* Crée l'espace nécessaire pour la nouvelle puce */
+    margin-bottom: 12px;    /* Espace aéré entre chaque ligne */
+    color: var(--text-main);/* Ton texte sombre pro */
+    font-size: 0.95rem;
+    line-height: 1.6;       /* Hauteur de ligne confortable pour la lecture */
+    cursor: default;
+    
+    /* Transition fluide pour l'effet de survol (hover) */
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* CRÉATION DE LA PUCE PERSONNALISÉE (Le carré au look moderne) */
+.classy-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 7px;               /* Centre verticalement la puce face à la première ligne */
+    width: 8px;             /* Largeur de la puce */
+    height: 8px;            /* Hauteur de la puce */
+    background: var(--primary-grad); /* Utilise le joli dégradé bleu de ton site */
+    border-radius: 3px;     /* Coins légèrement arrondis pour casser le côté rigide */
+    box-shadow: 0 2px 6px rgba(14, 165, 233, 0.35); /* Léger effet de lumière bleue */
+    
+    /* Transition pour l'animation de la puce */
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+/* 🌟 EFFET DE SURVOL (Hover) : Donne vie à ta liste */
+.classy-list li:hover {
+    transform: translateX(4px);   /* Le texte se décale élégamment vers la droite */
+    color: var(--primary-dark);   /* Le texte prend la couleur bleue foncée de ton thème */
+}
+
+.classy-list li:hover::before {
+    transform: scale(1.3);         /* La puce grossit subtilement sous la souris */
+}
+
+#panelTitle::before {
+    content: none !important;
+}
+
 @media (max-width: 580px) {
     .btn-contact { width: 100%; }
     .contact-actions { gap: 12px; }

@@ -5,10 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const indicator = document.querySelector(".nav-indicator");
 
     // GESTION DU HUB DE NAVIGATION DE LA PRÉSENTATION
-    // GESTION DU HUB DE NAVIGATION DE LA PRÉSENTATION
     document.querySelectorAll(".hub-btn[data-hub-tab]").forEach(hubBtn => {
         hubBtn.addEventListener("click", (e) => {
-            // On ne bloque pas l'action si le bouton n'a pas de cible JS (ex: LinkedIn ou le CV)
             const mainTabTarget = hubBtn.dataset.hubTab;
             if (!mainTabTarget) return;
 
@@ -21,9 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 targetNav.click();
             }
 
-            // Activation du sous-bloc (Scolaire / Projets) si spécifié
+            // CORRECTION : On cible uniquement les sous-blocs de #projets pour éviter les conflits globaux
             if (subTabTarget) {
-                document.querySelectorAll(".projets-block").forEach(b => b.classList.remove("active"));
+                document.querySelectorAll("#projets .projets-block").forEach(b => b.classList.remove("active"));
                 const targetBlock = document.getElementById(subTabTarget);
                 if (targetBlock) {
                     targetBlock.classList.add("active");
@@ -140,28 +138,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Gestion globale de l'ouverture de la modale
+    // Gestion globale de l'ouverture de la modale
     window.openDetails = function(card) {
         const title = card.getAttribute('data-title');
         const desc = card.getAttribute('data-desc');
         const acCodes = card.getAttribute('data-ac');
         const extra = card.getAttribute('data-extra');
+        const illustrations = card.getAttribute('data-illustrations'); // <-- Récupération des images
 
         document.getElementById('panelTitle').innerText = title;
         document.getElementById('panelDesc').innerText = desc;
         document.getElementById('panelExtra').innerText = extra;
 
-		const tagElem = card.querySelector('.category-tag') || card.querySelector('[class*="tag-"]');
-		if (tagElem) {
+        const tagElem = card.querySelector('.category-tag') || card.querySelector('[class*="tag-"]');
+        if (tagElem) {
             const computedStyle = window.getComputedStyle(tagElem);
-            const tagColor = computedStyle.color;           // Couleur du texte (sombre)
-            const tagBgColor = computedStyle.backgroundColor; // Couleur de fond (pastel)
+            const tagColor = computedStyle.color;           
+            const tagBgColor = computedStyle.backgroundColor; 
             
-            // On applique un dégradé du haut (texte) vers le bas (fond)
             panelTitle.style.borderImage = `linear-gradient(to bottom, ${tagColor}, ${tagBgColor}) 1`;
         } else {
-            // Dégradé bleu par défaut (fallback) si pas de badge trouvé
             panelTitle.style.borderImage = `linear-gradient(to bottom, #007BFF, #99caff) 1`; 
         }
+        
         const acContainer = document.getElementById('panelAC');
         acContainer.innerHTML = '';
 
@@ -177,9 +176,61 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
+        // <-- AJOUT : Gestion dynamique de la section Illustrations
+        const illustrationsContainer = document.getElementById('panelIllustrations');
+        if (illustrationsContainer) {
+            illustrationsContainer.innerHTML = ''; // On vide le conteneur précédent
+            
+            if (illustrations && illustrations.trim() !== "") {
+                // Création d'un titre adapté pour la section
+                const titleSec = document.createElement('h3');
+                titleSec.className = 'panel-section-title';
+                titleSec.innerText = "Illustrations & Documents (cliquer)";
+                illustrationsContainer.appendChild(titleSec);
+
+                // Création de la galerie
+                const gallery = document.createElement('div');
+                gallery.className = 'panel-illustrations-gallery';
+
+                illustrations.split(',').forEach(url => {
+                    const cleanUrl = url.trim();
+                    if (cleanUrl !== "") {
+                        // Détection de l'extension du fichier
+                        const isPdf = cleanUrl.toLowerCase().endsWith('.pdf');
+
+                        if (isPdf) {
+                            // Conteneur de l'aperçu
+                            const pdfContainer = document.createElement('div');
+                            pdfContainer.className = 'panel-illustration-pdf-container';
+                            
+                            // "view=Fit" force la page du PDF à prendre toute la place disponible
+                            pdfContainer.innerHTML = `
+                                <object data="${cleanUrl}#page=1&toolbar=0&navpanes=0&scrollbar=0&view=Fit" type="application/pdf" class="panel-illustration-pdf-object"></object>
+                                <div class="panel-illustration-pdf-overlay" title="Ouvrir le document PDF"></div>
+                            `;
+
+                            // Clic pour ouvrir le vrai PDF entier
+                            pdfContainer.addEventListener('click', () => window.open(cleanUrl, '_blank'));
+                            
+                            gallery.appendChild(pdfContainer);
+                        } else {
+                            // Logique pour une image classique
+                            const img = document.createElement('img');
+                            img.src = cleanUrl;
+                            img.className = 'panel-illustration-img';
+                            img.alt = "Illustration du projet";
+                            img.addEventListener('click', () => window.open(img.src, '_blank'));
+                            gallery.appendChild(img);
+                        }
+                    }
+                });
+                illustrationsContainer.appendChild(gallery);
+            }
+        }
+
         document.getElementById('detailsPanel').classList.add('active');
         document.getElementById('panelOverlay').classList.add('active');
-        document.body.style.overflow = 'hidden'; // Bloque le scroll en arrière-plan
+        document.body.style.overflow = 'hidden'; 
     };
 
     window.closeDetails = function() {
