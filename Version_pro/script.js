@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // DICTIONNAIRE UNIQUE DES APPRENTISSAGES CRITIQUES (AC)
 	const glossaireAC = {
+		"Aucun": "Aucun apprentissage critique pour ce projet",
 		"AC11.01": "Implémenter des conceptions simples",
 		"AC11.02": "Élaborer des conceptions simples",
 		"AC11.03": "Faire des essais et évaluer leurs résultats en regard des spécifications",

@@ -13,7 +13,7 @@
         <div class="profil">
             <img src="photo.jpg" alt="Photo de profil">
             <div class="profil-text">
-                <h1>Nom Prénom</h1>
+                <h1>BOUSSAID Ilian</h1>
                 <p class="profil-subtitle">Étudiant en BUT Informatique</p>
             </div>
         </div>
@@ -175,8 +175,8 @@
 
 			<div class="projets-block" id="projets-block">
 				<div class="tabs-projets">
-					<button class="projet-tab-btn active" data-target="tab-s1">Lycée</button>
-					<button class="projet-tab-btn active" data-target="tab-s1">Semestre 1</button>
+					<button class="projet-tab-btn active" data-target="tab-lyc">Lycée (Terminale)</button>
+					<button class="projet-tab-btn" data-target="tab-s1">Semestre 1</button>
 					<button class="projet-tab-btn" data-target="tab-s2">Semestre 2</button>
 					<button class="projet-tab-btn" data-target="tab-s3">Semestre 3</button>
 					<button class="projet-tab-btn" data-target="tab-s4">Semestre 4</button>
@@ -196,8 +196,58 @@
 					</div>
 				</div>
 
-                <!-- CONTENU SEMESTRE 1 -->
-            <div id="tab-s1" class="tab-content active">
+			<div id="tab-lyc" class="tab-content active">
+                <div class="unique-project-container">
+                    <div class="projet-card-unique" onclick="openDetails(this)" 
+                         data-title="Uno en ligne : Création d'un UNO en ligne" 
+                         data-desc="Ceci est mon tout premier projet ambitieux en informatique (et en équipe).
+						 Le concept est simple : choisir un jeu à développer, et le créer.
+						 Codé en Python, le projet se voyait ambitieux : le jeu se présentait comme un jeu en ligne.
+						 Ce que j'ai pu mobiliser :
+						 - Les premiers processus réseaux (flags etc.),
+						 - Du front-end : HTML, CSS, JS,
+						 - Une base de données en SQL.
+						 Nous avions un système d'ID de partie, pouvoir rejoindre des parties, retirer des membres du groupe, et même un système d'amis.
+						 Finalement, le travail dépassait nos attentes."
+						 data-ac="Aucun"
+                         data-extra="Python, HTML, CSS, JS, Flag réseau, Travail d'équipe, SQL">
+                        
+                        <div class="card-unique-header">
+                            <span class="category-tag tag-dev">Développement</span>
+                            <span class="category-tag tag-opti">Optimisation</span>
+                            <span class="category-tag tag-sys">Réseau</span>
+                            <span class="category-tag tag-data">Données</span>
+                            <span class="category-tag tag-mgmt">Management</span>
+                            <span class="category-tag tag-prof">Travail d'équipe</span>
+                            <h4>Uno en ligne : Création d'un UNO en ligne</h4>
+                        </div>
+                        
+                        <div class="card-unique-body">
+                            <p class="card-description-unique">
+                                Création d'un UNO en ligne ambitieux mélant : HTML, CSS, JS en front-end, Python en back-end, et une base de données SQL. Projet effectué à 4 personnes.
+                            </p>
+                            
+                            <div class="skills-badges-unique">
+                                <span class="badge">Python</span>
+                                <span class="badge">HTML</span>
+                                <span class="badge">CSS</span>
+                                <span class="badge">JS</span>
+                                <span class="badge">Flag réseau</span>
+                                <span class="badge">Travail d'équipe</span>
+                                <span class="badge">SQL</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-unique-footer">
+                            <span>Découvrir les détails et livrables de ce projet</span>
+                            <span class="arrow-unique">En savoir plus →</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+			<!-- CONTENU SEMESTRE 1 -->
+			<div id="tab-s1" class="tab-content">
                 <div class="projets-grid">
                     <div class="projet-card" onclick="openDetails(this)" 
                         data-title="SAÉ 1.01 : Annuaire en C" 
@@ -523,6 +573,46 @@
                     </div>
                 </div>
             </div>
+			<div id="tab-s4" class="tab-content">
+                <div class="unique-project-container">
+                    <div class="projet-card-unique" onclick="openDetails(this)" 
+                         data-title="SAÉ 4.01 : Mise en place d'un Docker Swarm" 
+                         data-desc="Seule SAÉ du Semestre 4 ayant pour objectif de mettre en place 3 machines virtuelles Linux (Debian).
+						 2 VMs sont esclaves, et 1 VM est maître (c'est cette VM qui aura le Docker Swarm).
+						 En joignant avec des tokens les 2 VMs esclaves à la VM maître, on a un réseau Swarm.
+						 Ce réseau Swarm est installé avec Traefik, permettant de monitorer les différents Docker via le localhost (ou un domaine)."
+                         data-ac="Aucun"
+                         data-extra="Linux, Debian, Docker, Swarm, Traefik">
+                        
+                        <div class="card-unique-header">
+                            <span class="category-tag tag-sys">Système & Réseau</span>
+                            <span class="category-tag tag-mgmt">Management</span>
+                            <span class="category-tag tag-prof">Travail d'équipe</span>
+                            <h4>SAÉ 4.01 : Mise en place d'un Docker Swarm</h4>
+                        </div>
+                        
+                        <div class="card-unique-body">
+                            <p class="card-description-unique">
+                                Établir plusieurs machines virtuelles communicantes et interconnectées grâce à Docker Swarm. Objectif : monitorer les différents Docker.
+                            </p>
+                            
+                            <div class="skills-badges-unique">
+                                <span class="badge">Linux</span>
+                                <span class="badge">Debian</span>
+                                <span class="badge">Docker</span>
+                                <span class="badge">Swarm</span>
+                                <span class="badge">Traefik</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-unique-footer">
+                            <span>Découvrir les détails et livrables de ce projet</span>
+                            <span class="arrow-unique">En savoir plus →</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			
             
             <p class="footnote">SAÉ : Situation d'apprentissage évalué.</p>
         </div>
@@ -558,13 +648,42 @@
 		</div>
 	</section>
     
-    <section id="contact">
-        <h2>Contact</h2>
-        <div class="card">
-            <p class="text-p">N'hésitez pas à me contacter via mon profil LinkedIn ou à demander mon CV complet.</p>
-        </div>
-    </section>
-</main>
+	<section id="contact">
+		<h2>Contact & Réseaux</h2>
+		
+		<div class="contact-card">
+			
+			<div class="contact-icon-header">Mes contacts</div>
+			
+			<h3 class="subtitle">Discutons de votre prochain projet !</h3>
+			<p class="text-p contact-desc">
+				Pour plus d'informations, veuillez me contacter via LinkedIn, ou bien à partir de mes coordonnées présentes sur mon CV.
+				Ce sera avec grand plaisir de vous répondre !
+			</p>
+			
+			<div class="contact-actions">
+				<a href="fichiers/mon-cv.pdf" class="btn-contact cv-btn" download>
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="btn-icon">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+					</svg>
+					Télécharger le CV
+				</a>
+
+				<a href="https://linkedin.com/in/ton-profil" target="_blank" class="btn-contact linkedin-btn">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="btn-icon">
+						<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+					</svg>
+					Voir LinkedIn
+				</a>
+			</div>
+
+			<div class="contact-footer-email">
+				<span>Ou directement par mail :</span>
+				<a href="mailto:contact.ilianboussaid@gmail.com" class="email-link">contact.ilianboussaid@gmail.com</a>
+			</div>
+			
+		</div>
+	</section>
 
 <div class="panel-overlay" id="panelOverlay" onclick="closeDetails()"></div>
 

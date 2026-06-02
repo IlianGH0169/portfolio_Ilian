@@ -603,6 +603,122 @@ nav a.active, nav a:hover { color: var(--primary); }
     border-left: 5px solid #6366f1 !important; /* Un bel accent indigo qui montre la fusion des cases */
 }
 
+/* --- LE CADRE DE FOND (RESTAURÉ ET CENTRÉ) --- */
+.contact-card {
+    background: var(--card-bg);           /* Reprend la couleur blanche/grise de tes cartes */
+    border: 1px solid var(--border-color); /* Ta bordure fine habituelle */
+    border-radius: var(--radius-lg);       /* Ton arrondi de carte standard */
+    box-shadow: var(--shadow-md);          /* Ton ombre portée légère */
+    padding: 45px 35px;
+    max-width: 680px;                      /* Largeur max élégante pour du texte */
+    margin: 30px auto 0 auto;              /* Centre le cadre horizontalement sur la page */
+    text-align: center;                    /* Centre tout le texte et les éléments à l'intérieur */
+}
+
+/* --- Suite des styles (émoji, boutons, mail...) --- */
+.contact-icon-header {
+    font-size: 3.2rem;
+    margin-bottom: 15px;
+    display: inline-block;
+    animation: contactFloat 3s ease-in-out infinite;
+}
+
+@keyframes contactFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.contact-desc {
+    max-width: 520px;
+    margin: 0 auto 35px auto;
+}
+
+.contact-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+}
+
+.btn-contact {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    text-decoration: none;
+    padding: 16px 30px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border-radius: var(--radius-md);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.cv-btn {
+    background: var(--primary-grad);
+    color: white;
+    box-shadow: 0 4px 14px rgba(14, 165, 233, 0.25);
+}
+.cv-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(14, 165, 233, 0.4);
+}
+
+.linkedin-btn {
+    background: #ffffff;
+    color: #0077b5;
+    border: 2px solid #0077b5;
+}
+.linkedin-btn:hover {
+    background: #0077b5;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(0, 119, 181, 0.2);
+}
+
+.btn-icon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.2s ease;
+}
+.cv-btn:hover .btn-icon { transform: translateY(2px); }
+.linkedin-btn:hover .btn-icon { transform: scale(1.05); }
+
+.contact-footer-email {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-color);
+    padding-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.email-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+}
+.email-link::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.25s ease;
+}
+.email-link:hover::after { width: 100%; }
+
+@media (max-width: 580px) {
+    .btn-contact { width: 100%; }
+    .contact-actions { gap: 12px; }
+}
+
 @media (max-width: 650px) {
     .projects-counter-box {
         flex-direction: column;
