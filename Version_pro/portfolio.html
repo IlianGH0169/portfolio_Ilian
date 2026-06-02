@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="top-header">
+        <div class="profil">
+            <img src="photo.jpg" alt="Photo de profil">
+            <div class="profil-text">
+                <h1>Nom Prénom</h1>
+                <p class="profil-subtitle">Étudiant en BUT Informatique</p>
+            </div>
+        </div>
+
+        <div class="header-buttons">
+            <a href="https://www.linkedin.com" target="_blank" class="btn-secondary">LinkedIn</a>
+            <a href="cv.pdf" target="_blank" class="btn-primary">Voir le CV</a>
+        </div>
+    </div>
+
+    <nav id="main-nav">
+        <ul>
+            <li><a href="#" class="active" data-tab="presentation">Présentation</a></li>
+            <li class="dropdown-nav">
+                <a href="#" data-tab="projets">Projets et compétences <span class="arrow">▾</span></a>
+                <div class="dropdown-menu">
+                    <div data-subtab="scolaire">Parcours scolaire</div>
+                    <div data-subtab="projets-block">Mes Projets</div>
+                </div>
+            </li>
+            <li><a href="#" data-tab="experiences">Expériences professionnelles</a></li>
+            <li><a href="#" data-tab="contact">Contact</a></li>
+        </ul>
+        <div class="nav-indicator"></div>
+    </nav>
+</header>
+
+<main>
+
+<section id="presentation" class="active">
+    <h2>Présentation</h2>
+    <div class="card">
+        <h3 class="subtitle">Bienvenue sur mon portfolio !</h3>
+        <p class="card-description">Bonjour,
+		Je suis Ilian BOUSSAID et je suis actuellement étudiant en BUT Informatique. Passionné par les réseaux informatiques, de mes 10 ans à mes 20 ans, je souhaite découvrir les systèmes que nos ordinateurs nous cachent...
+		Depuis tout jeune, je m'intéresse à ce domaine aussi bien utile que mystérieux.
+		A travers ce portfolio, vous pourrez voir mes projets passés, mes anciennes expériences professionnelles, mais aussi les compétences que j'ai pu acquérir au fil des années.
+		Si vous souhaiter découvrir ma quête de perçage du mystère de l'informatique, je vous invite à continuer la visite !</p>
+
+        <div class="presentation-hub">
+            <h4 class="hub-title">Navigation rapide</h4>
+            <div class="hub-grid">
+                
+                <a href="#" class="hub-btn" data-hub-tab="projets" data-hub-subtab="projets-block">
+                    <div class="hub-text">
+                        <span class="hub-btn-title">Mes Projets</span>
+                        <span class="hub-btn-desc">SAÉ Semestres 1 & 2</span>
+                    </div>
+                    <span class="hub-arrow">→</span>
+                </a>
+
+                <a href="#" class="hub-btn" data-hub-tab="projets" data-hub-subtab="scolaire">
+                    <div class="hub-text">
+                        <span class="hub-btn-title">Parcours scolaire</span>
+                        <span class="hub-btn-desc">Cursus & diplômes</span>
+                    </div>
+                    <span class="hub-arrow">→</span>
+                </a>
+
+                <a href="#" class="hub-btn" data-hub-tab="experiences">
+                    <div class="hub-text">
+                        <span class="hub-btn-title">Expériences pro</span>
+                        <span class="hub-btn-desc">Stages & parcours</span>
+                    </div>
+                    <span class="hub-arrow">→</span>
+                </a>
+
+                <a href="https://www.linkedin.com" target="_blank" class="hub-btn">
+                    <div class="hub-text">
+                        <span class="hub-btn-title">LinkedIn</span>
+                        <span class="hub-btn-desc">Mon réseau professionnel</span>
+                    </div>
+                    <span class="hub-arrow">→</span>
+                </a>
+
+                <a href="cv.pdf" target="_blank" class="hub-btn">
+                    <div class="hub-text">
+                        <span class="hub-btn-title">Télécharger mon CV</span>
+                        <span class="hub-btn-desc">Format PDF standardisé</span>
+                    </div>
+                    <span class="hub-arrow">→</span>
+                </a>
+
+                <a href="#" class="hub-btn" data-hub-tab="contact">
+                    <div class="hub-text">
+                        <span class="hub-btn-title">Me contacter</span>
+                        <span class="hub-btn-desc">Coordonnées</span>
+                    </div>
+                    <span class="hub-arrow">→</span>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="projets">
+        <h2 id="titre-projets">Projets et compétences</h2>
+
+        <div class="projets-block card" id="scolaire">
+            <h3 class="subtitle">Mon Cursus Universitaire</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+					<div class="timeline-content">
+                        <h4>Collège de la Plaine de l'Ain - Leyment</h4>
+                        <span class="timeline-date">2018 - 2021</span>
+                        <p>Premières explorations dans l'informatique - utilisation de logiciels comme Scratch, et certification PIX.
+						Brevet mention Très Bien obtenu</p>
+                    </div>
+				</div>
+				<div class="timeline-item">
+					<div class="timeline-dot"></div>
+					<div class="timeline-content">
+                        <h4>Lycée de la Plaine de l'Ain - Ambérieu-en-Bugey</h4>
+                        <span class="timeline-date">2021 - 2024</span>
+                        <p>Passionné par l'informatique, premières connaissances en SNT (Sciences Numériques et Technologiques), et premières manipulation du code avec Python.
+						Pour la première, les spécialités choisies sont :
+						- Mathématiques,
+						- Sciences de l'Ingénieur (SI),
+						- Numériques et Sciences Informatiques (NSI)
+						En Terminale, j'ai abandonné les Sciences de l'Ingénieur.
+						Baccalauréat Général Mention Bien obtenu</p>
+                    </div>
+				</div>
+				<div class="timeline-item">
+					<div class="timeline-dot"></div>
+					<div class="timeline-content">
+                        <h4>BUT Informatique - IUT Claude Bernard - Villeurbanne</h4>
+                        <span class="timeline-date">2024 - Présent</span>
+                        <p>Actuellement en BUT Informatique, j'explore intégralement les aspects complexes de l'informatique, notamment :
+						- L'algorithmie,
+						- Le bas niveau,
+						- Des langages de programmation interprétés (Python...), et compilés (Java, C...),
+						- Des travaux pratiques me mettant à l'épreuve,
+						- De l'administration système et réseau,
+						- De la base de données SQL et PL/SQL...
+						
+						A partir de la seconde année : parcours Déploiement d'Applications Communicantes et Sécurisées.
+						Mes objectifs :
+						- En apprendre d'avantages sur les scripts Bash/PowerShell,
+						- Manipuler des serveurs et des services complexes,
+						- Configurer un parc informatique.</p>
+                    </div>
+				</div>
+					<div class="timeline-item">
+					<div class="timeline-dot"></div>
+					<div class="timeline-content">
+                        <h4>En ensuite ?</h4>
+                        <span class="timeline-date">Futur</span>
+                        <p>J'aimerai intégré un Master en cybersécurité, potentiellement en restant dans l'université Claude Bernard Lyon 1 (me permettant d'être en alternance).
+						Dans la finalite : pouvoir avoir le poste de consultant en cybersécurité.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+
+			<div class="projets-block" id="projets-block">
+				<div class="tabs-projets">
+					<button class="projet-tab-btn active" data-target="tab-s1">Lycée</button>
+					<button class="projet-tab-btn active" data-target="tab-s1">Semestre 1</button>
+					<button class="projet-tab-btn" data-target="tab-s2">Semestre 2</button>
+					<button class="projet-tab-btn" data-target="tab-s3">Semestre 3</button>
+					<button class="projet-tab-btn" data-target="tab-s4">Semestre 4</button>
+					<button class="projet-tab-btn" data-target="tab-alternance">Alternance</button>
+				</div>
+				
+					<!-- BANDEAU COMPTEUR DE PROJETS (TOUTE LA LONGUEUR) -->
+				<div class="projects-counter-box">
+					<div class="counter-item">
+						<span class="counter-label">Projets dans ce semestre :</span>
+						<span class="counter-value" id="current-project-count">0</span>
+					</div>
+					<div class="counter-divider"></div>
+					<div class="counter-item">
+						<span class="counter-label">Total des projets réalisés :</span>
+						<span class="counter-value" id="total-project-count">0</span>
+					</div>
+				</div>
+
+                <!-- CONTENU SEMESTRE 1 -->
+            <div id="tab-s1" class="tab-content active">
+                <div class="projets-grid">
+                    <div class="projet-card" onclick="openDetails(this)" 
+                        data-title="SAÉ 1.01 : Annuaire en C" 
+                        data-desc="Le projet consistait à concevoir, en C, un programme de gestion d'annuaires de clients. Cela mettait en jeu mes compétences de réflexion, de logique, et l'utilisation d'algorithme complexe (tris, filtres). La lecture est la construction de l'annuaire se basait sur un fichier CSV."
+                        data-ac="AC11.01, AC11.02, AC11.03, AC11.04"
+                        data-extra="Langage C, Algorithmique, Exploitation de données, CSV">
+                        <div class="card-inner">
+                            <span class="category-tag tag-dev">Développement</span>
+                            <h4>SAÉ 1.01 : Annuaire en C</h4>
+                            <p class="card-description">Développement d’un annuaire en C, pour gérer un réseau de données.</p>
+                            <div class="skills-badges">
+                                <span class="badge">Langage C</span>
+                                <span class="badge">Algorithmique</span>
+                                <span class="badge">Exploitation de données</span>
+                                <span class="badge">CSV</span>
+                            </div>
+                        </div>
+                        <div class="card-footer"><span>Détails du projet</span><span>→</span></div>
+                    </div>
+
+                    <div class="projet-card" onclick="openDetails(this)" 
+                         data-title="SAÉ 1.02 : Comparaison d'algorithmes" 
+                         data-desc="Analyse de complexité et comparaison de performance entre différents algorithmes de tri et de recherche. Cette SAÉ est directement liée à la SAE 1.01, et a mis en épreuve mes capacités mathématiques et algorithmiques."
+                         data-ac="AC12.01, AC12.02, AC12.03"
+                         data-extra="Langage C, Analyse de complexité, Performance">
+                        <div class="card-inner">
+                            <span class="category-tag tag-opti">Optimisation</span>
+                            <h4>SAÉ 1.02 : Comparaison d'algorithmes</h4>
+                            <p class="card-description">Compréhension algorithmique et analyse de la complexité de l’annuaire en C.</p>
+                            <div class="skills-badges">
+                                <span class="badge">Langage C</span>
+                                <span class="badge">Analyse de complexité</span>
+                                <span class="badge">Performance</span>
+                            </div>
+                        </div>
+                        <div class="card-footer"><span>Détails du projet</span><span>→</span></div>
+                    </div>
+
+                    <div class="projet-card" onclick="openDetails(this)" 
+                         data-title="SAÉ 1.03 : Installation d'un poste de travail" 
+                         data-desc="Cette SAÉ se décompose en 3 parties :
+						 1. Configuration d'un environnement Windows, en manipulant les droits d'utilisateurs (héritage, groupes...)
+						 2. Recommandations de PC (Hardware notamment) en fonction du besoin de différents utilisateurs,
+						 3. Commandes Linux pour gérer des fichiers (grep, cp, mv, cat...)
+						 Cela m'a permis de mieux comprendre les systèmes informatiques, d'un point de vue Hardware tout comme Software"
+                         data-ac="AC13.01, AC13.02, AC13.03"
+                         data-extra="Linux, Bash, Droits (Windows), Administration, Hardware">
+                        <div class="card-inner">
+                            <span class="category-tag tag-sys">Système</span>
+                            <h4>SAÉ 1.03 : Installation d'un poste de travail</h4>
+                            <p class="card-description">Etablissement d’une notice pour un déploiement de PC, et gestion des utilisateurs.</p>
+                            <div class="skills-badges">
+                                <span class="badge">Linux</span>
+                                <span class="badge">Bash</span>
+                                <span class="badge">Droits (Windows)</span>
+                                <span class="badge">Administration</span>
+                                <span class="badge">Hardware</span>
+                            </div>
+                        </div>
+                        <div class="card-footer"><span>Détails du projet</span><span>→</span></div>
+                    </div>
+
+                    <div class="projet-card" onclick="openDetails(this)" 
+                         data-title="SAÉ 1.04 : Création d'une base de données" 
+                         data-desc="Cette SAÉ est découpée en 2 parties :
+						 1. Récupérer et juger les informations issues d'un cahier des charges. Grâce à cette étape, j'ai pu garder l'essentiel des informations pour établir un Modèle Conceptuel de Données (MCD) Cela a permis de découler sur un Modèle Logique de Données et Physique (MLD, MPD)
+						 2. Établissement de la base de données SQL. Grâce au logiciel PowerAMC et au MCD, j'ai crée une base de données SQL optimale pour le cahier des charges.
+						 En conclusion, j'ai manipulé intensément des données grâce à une réflexion poussée."
+                         data-ac="AC14.01, AC14.02, AC14.03"
+                         data-extra="SQL, MCD, MLD, MPD, PowerAMC, Esprit critique">
+                        <div class="card-inner">
+                            <span class="category-tag tag-data">Données</span>
+                            <h4>SAÉ 1.04 : Manipulation de données, et création d'une base de données</h4>
+                            <p class="card-description">Créer une Base de données à partir des exigences d’une entreprise.</p>
+                            <div class="skills-badges">
+                                <span class="badge">SQL</span>
+                                <span class="badge">MCD</span>
+                                <span class="badge">MLD</span>
+                                <span class="badge">MPD</span>
+                                <span class="badge">PowerAMC</span>
+                                <span class="badge">Esprit critique</span>
+                            </div>
+                        </div>
+                        <div class="card-footer"><span>Détails du projet</span><span>→</span></div>
+                    </div>
+
+                    <div class="projet-card" onclick="openDetails(this)" 
+                         data-title="SAÉ 1.05 : Recueil de besoins" 
+                         data-desc="Ce projet est court. En effet, il se base sur un travail pratique (TP) en Web. Les langages utilisés sont : HTML, CSS. J'ai établi un site à partir d'exigences techniques. Manipulation des tables, du CSS responsive... Aucune illustration n'est disponible pour ce projet."
+                         data-ac="AC15.01"
+                         data-extra="Analyse, HTML, CSS">
+                        <div class="card-inner">
+                            <span class="category-tag tag-mgmt">Gestion</span>
+                            <h4>SAÉ 1.05 : Recueil de Besoins</h4>
+                            <p class="card-description">Construction d’un site WEB, avec HTML et CSS répondant à des exigences.</p>
+                            <div class="skills-badges">
+                                <span class="badge">Analyse</span>
+                                <span class="badge">HTML</span>
+                                <span class="badge">CSS</span>
+                            </div>
+                        </div>
+                        <div class="card-footer"><span>Détails du projet</span><span>→</span></div>
+                    </div>
+
+                    <div class="projet-card" onclick="openDetails(this)" 
+                         data-title="SAÉ 1.06 : Découverte de l'économie numérique" 
+                         data-desc="Étude de l'impact économique et juridique des solutions logicielles sur le marché actuel."
+                         data-ac="AC16.02, AC16.03"
+                         data-extra="Économie, Droit du numérique, Étude de marché">
+                        <div class="card-inner">
+                            <span class="category-tag tag-prof">Professionnel</span>
+                            <h4>SAÉ 1.06 : Économie Numérique</h4>
+                            <p class="card-description">Analyse des enjeux financiers et légaux du secteur informatique.</p>
+                            <div class="skills-badges">
+                                <span class="badge">Droit</span>
+                                <span class="badge">Économie</span>
+                            </div>
+                        </div>
+                        <div class="card-footer"><span>Détails du projet</span><span>→</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTENU SEMESTRE 2 -->
+            <div id="tab-s2" class="tab-content">
+                <div class="projets-grid">
+                    <div class="projet-card" onclick="openDetails(this)" 
+                         data-title="SAÉ 2.01 : Application Java Itinéraire" 
+                         data-desc="Calcul du chemin le plus court pour la Fête des Lumières. Utilisation de plusieurs algorithmes des graphes.
+						 Algorithmes utilisés :
+						 - Glouton,
+						 - Random
+						 - Insertion,
+						 - Concord"
+                         data-ac="AC11.01, AC11.02"
+                         data-extra="Java, Swing, Graphes de Dijkstra">
+                        <div class="card-inner">
+                            <span class="category-tag tag-dev">Développement</span>
+                            <h4>SAÉ 2.01 : Application Java Itinéraire</h4>
+                            <p class="card-description">Développement d’une application Java, en guise de récupérer l’itinéraire le plus court entre deux points.</p>
+                            <div class="skills-badges">
+                                <span class="badge">Java</span>
+                                <span class="badge">Graphes</span>
+								<span class="badge">Swing</span>
+                            </div>
+                        </div>
+                        <div class="card-footer"><span>Détails du projet</span><span>→</span></div>
+                    </div>
+					<div class="projet-card" onclick="openDetails(this)" 
+                         data-title="SAÉ 2.02 : Algorithme de l'Application d'Itinéraire" 
+                         data-desc="En relation directe avec la SAE2.01, le but étant de déterminer quel itinéraire est le plus optimal pour trouver le meilleur itinéraire.
+						 En outre, on cherche à optimiser : le temps, et la rapidité (dans le sens réel : combien de temps mettra une personne pour voir le plus de spectacles possible.
+						 Export avec tous les temps de tous les algorithmes, comparaison possible des algorithmes."
+                         data-ac="AC12.01, AC12.02, AC12.03"
+                         data-extra="Théorie des graphes, Méthodes d'optimisation, Approches critiques, Mathématiques">
+                        <div class="card-inner">
+                            <span class="category-tag tag-opti">Optimisation</span>
+                            <h4>SAÉ 2.02 : Algorithme de l'Application d'Itinéraire</h4>
+                            <p class="card-description">Analyse et compréhension mathématique d’un problème de calcul de distance optimale.</p>
+                            <div class="skills-badges">
+                                <span class="badge">Théorie des graphes</span>
+                                <span class="badge">Méthodes d'optimisation</span>
+								<span class="badge">Approches critiques</span>
+								<span class="badge">Mathématiques</span>
+                            </div>
+                        </div>
+                        <div class="card-footer"><span>Détails du projet</span><span>→</span></div>
+                    </div>
+					<div class="projet-card" onclick="openDetails(this)" 
+                         data-title="SAÉ 2.03 : Rédiger et configurer un réseau informatique" 
+                         data-desc="Le but de cette SAÉ est de pouvoir manipuler les réseaux à partir d'un cahier des charges.
+						 La manipulation des réseaux, adresses IP, et d'autres modules comme SSH, Telnet etc. est à connaître.
+						 Un plan d'adressage a été dressé et des routeurs ainsi que des switchs ont été configurés.
+						 En pièce jointe, la notice qui a permis d'établir un réseau simple et basique."
+                         data-ac="AC13.01, AC13.04"
+                         data-extra="Réseaux, Configurations matériels, Telnet, Routeurs, Switchs, SSH">
+                        <div class="card-inner">
+                            <span class="category-tag tag-sys">Réseau</span>
+                            <h4>SAÉ 2.03 : Rédiger et configurer un réseau informatique</h4>
+                            <p class="card-description">Etablissement d’une notice pour un déploiement de PC, et gestion des utilisateurs.</p>
+                            <div class="skills-badges">
+                                <span class="badge">Réseaux</span>
+                                <span class="badge">Configurations matériels</span>
+								<span class="badge">Telnet</span>
+								<span class="badge">Routeurs</span>
+								<span class="badge">Switchs</span>
+								<span class="badge">SSH</span>
+                            </div>
+                        </div>
+                        <div class="card-footer"><span>Détails du projet</span><span>→</span></div>
+                    </div>
+					<div class="projet-card" onclick="openDetails(this)" 
+                         data-title="SAÉ 2.04 : Faire une analyse à partir de données diverses" 
+                         data-desc="Cette SAÉ permet de prendre en main des données via une application spécialisée (ici, PowerBI).
+						 Le but étant de récupérer ces données afin d'en faire un rapport, et d'analyser des tendances dans des marchés.
+						 Ces bilans permettent de prendre des décisions, et de conseiller les entreprises"
+                         data-ac="AC14.01, AC14.02"
+                         data-extra="PowerBI, Base de données, Microsoft, Analyse de données">
+                        <div class="card-inner">
+                            <span class="category-tag tag-data">Données</span>
+                            <h4>SAÉ 2.04 : Faire une analyse à partir de données diverses</h4>
+                            <p class="card-description">Analyser des données obtenues via des sources diverses.</p>
+                            <div class="skills-badges">
+                                <span class="badge">PowerBI</span>
+                                <span class="badge">Base de données</span>
+								<span class="badge">Microsoft</span>
+								<span class="badge">Analyse de données</span>
+                            </div>
+                        </div>
+                        <div class="card-footer"><span>Détails du projet</span><span>→</span></div>
+                    </div>
+					<div class="projet-card" onclick="openDetails(this)" 
+                         data-title="SAÉ 2.05 : Manager et organiser un projet" 
+                         data-desc="Continuité des SAÉ 2.01 et SAÉ 2.02.
+						 Pour mener à bien ces projets, nous devions s'organiser au sein d'un groupe de 3.
+						 Pour cela, nous avons établi :
+						 - Un cahier des charges,
+						 - Un GANTT,
+						 - Les rôles de chacun, 
+						 - Un cycle de développement en W
+						 - D'autres processus clés...
+						 Cela nous m'a permis de m'organiser avec les différents membres du groupes et d'avoir un objectif clair du projet."
+                         data-ac="AC15.01, AC15.02, AC15.03"
+                         data-extra="Gestion de projet, GANTT, Management d'une équipe, Cahier des charges, Assiduité">
+                        <div class="card-inner">
+                            <span class="category-tag tag-mgmt">Management</span>
+                            <h4>SAÉ 2.05 : Manager et organiser un projet</h4>
+                            <p class="card-description">Organiser un projet, établir un cahier des charges, un GANTT, et mener à bien le projet.</p>
+                            <div class="skills-badges">
+                                <span class="badge">Gestion de projet</span>
+                                <span class="badge">GANTT</span>
+								<span class="badge">Management d'une équipe</span>
+								<span class="badge">Cahier des charges</span>
+								<span class="badge">Assiduité</span>
+                            </div>
+                        </div>
+                        <div class="card-footer"><span>Détails du projet</span><span>→</span></div>
+                    </div>
+					<div class="projet-card" onclick="openDetails(this)" 
+                         data-title="SAÉ 2.06 : Produire une affiche technique en équipe" 
+                         data-desc="Afin de pouvoir produire une affiche technique qui enseigne les autres étudiants, il était nécessaire de se placer dans une équipe.
+						 Dans ces conditions, j'ai pu établir :
+						 - Un emploi du temps,
+						 - Des articles (comme en droits),
+						 - Se distribuer les tâches (graphismes, conceptualisation, écriture),
+						 - Débattre avec les collaborateurs sur la modélisation de l'affiche.
+						 Cette SAÉ permet de consolider des équipes solides et efficaces.
+						 "
+                         data-ac="AC16.01, AC16.03, AC16.04"
+                         data-extra="Travail d'équipe, Conceptualisation, Modélisation (FIGMA)">
+                        <div class="card-inner">
+                            <span class="category-tag tag-prof">Travail d'équipe</span>
+                            <h4>SAÉ 2.06 : Produire une affiche technique en équipe</h4>
+                            <p class="card-description">Conceptualisation d’un poster à titre informatif visant à instruire sur l’informatique et une de ses technologies.</p>
+                            <div class="skills-badges">
+                                <span class="badge">Travail d'équipe</span>
+                                <span class="badge">Conceptualisation</span>
+								<span class="badge">Modélisation (FIGMA)</span>
+                            </div>
+                        </div>
+                        <div class="card-footer"><span>Détails du projet</span><span>→</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTENU SEMESTRE 3 - PROJET UNIQUE VITRINE -->
+            <div id="tab-s3" class="tab-content">
+                <div class="unique-project-container">
+                    <div class="projet-card-unique" onclick="openDetails(this)" 
+                         data-title="SAÉ 3.01 : Développement d'une application d'attaque de mot de passe" 
+                         data-desc="Seule SAÉ du Semestre 3, elle consiste à développer un logiciel d'attaque de mots de passe.
+						 Les attaques étaient variées :
+						 - Attaque par brute-force,
+						 - Attaque par dictionnaire,
+						 - Mangling
+						 Ces attaques ont été entièrement codées en C, et utilisable dans un environnement Linux. Les attaques comparait les mots de passes hashés du fichier shadow.
+						 L'application a un manuel Linux, et est très développé :
+						 - Système de sauvegarde avec binaire (checksum...)
+						 - Différents choix d'attaques,
+						 - Système de reprise du crackage,
+						 - Parallèlisme de threading,
+						 - Progression du crackage en temps réel...
+						 La manipulation des fichiers shadow et passwd de Linux est essentielle (comprendre le Salt, et les algorithmes de hashage)."
+                         data-ac="AC21.01, AC21.02, AC21.04"
+                         data-extra="Linux, Bash, Langage C, Attaques informatique, Sécurité, Parallèlisme, Travail d'équipe, Salt, Hash, Algorithme SHA-256, Dictionnaire, Bruteforce, Fichier shadow">
+                        
+                        <div class="card-unique-header">
+                            <span class="category-tag tag-dev">Développement</span>
+                            <span class="category-tag tag-opti">Optimisation</span>
+                            <span class="category-tag tag-sys">Système</span>
+                            <span class="category-tag tag-data">Données</span>
+                            <span class="category-tag tag-mgmt">Management</span>
+                            <span class="category-tag tag-prof">Travail d'équipe</span>
+                            <h4>SAÉ 3.01 : Développement d'une application d'attaque de mot de passe</h4>
+                        </div>
+                        
+                        <div class="card-unique-body">
+                            <p class="card-description-unique">
+                                Concevoir une application utilisant des algorithmes simples et avancés permettant de faire des tests pour outrepasser un mot de passe crypté et hashé (bruteforce, mangling, attaque par dictionnaire…).
+                            </p>
+                            
+                            <div class="skills-badges-unique">
+                                <span class="badge">Linux</span>
+                                <span class="badge">Bash</span>
+                                <span class="badge">Langage C</span>
+                                <span class="badge">Attaques informatique</span>
+                                <span class="badge">Sécurité</span>
+                                <span class="badge">Parallèlisme</span>
+                                <span class="badge">Travail d'équipe</span>
+                                <span class="badge">Salt</span>
+                                <span class="badge">Hash</span>
+                                <span class="badge">Algorithme SHA-256</span>
+                                <span class="badge">Dictionnaire</span>
+                                <span class="badge">Bruteforce</span>
+                                <span class="badge">Fichier shadow</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-unique-footer">
+                            <span>Découvrir les détails et livrables de ce projet</span>
+                            <span class="arrow-unique">En savoir plus →</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="footnote">SAÉ : Situation d'apprentissage évalué.</p>
+        </div>
+    </section>
+
+    <section id="experiences">
+		<div class="projets-block active">
+		<h2>Expériences professionnelles</h2>
+			
+			<div class="tabs-projets">
+				<button class="projet-tab-btn active" data-target="exp-entreprise1">Entreprise 1</button>
+				<button class="projet-tab-btn" data-target="exp-entreprise2">Entreprise 2</button>
+			</div>
+
+			<div id="exp-entreprise1" class="tab-content active">
+				<div class="card" style="margin-top: 20px;">
+					<h3 class="company-title">Nom de l'Entreprise 1</h3>
+					<p class="text-p">
+						Description de votre poste au sein de la première entreprise, des tâches accomplies, des outils manipulés et de ce que cette expérience vous a apporté.
+					</p>
+				</div>
+			</div>
+
+			<div id="exp-entreprise2" class="tab-content">
+				<div class="card" style="margin-top: 20px;">
+					<h3 class="company-title">Nom de l'Entreprise 2</h3>
+					<p class="text-p">
+						Description de votre poste au sein de la deuxième entreprise, de vos missions principales et des technologies ou compétences clés développées.
+					</p>
+				</div>
+			</div>
+
+		</div>
+	</section>
+    
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="card">
+            <p class="text-p">N'hésitez pas à me contacter via mon profil LinkedIn ou à demander mon CV complet.</p>
+        </div>
+    </section>
+</main>
+
+<div class="panel-overlay" id="panelOverlay" onclick="closeDetails()"></div>
+
+<div class="details-panel" id="detailsPanel">
+    <span class="close-btn" onclick="closeDetails()">&times;</span>
+    <h2 id="panelTitle">Titre du Projet</h2>
+    <p class="description-full" id="panelDesc"></p>
+    
+    <div class="details-section">
+        <h5>Apprentissages Critiques Validés</h5>
+        <div id="panelAC"></div>
+    </div>
+    
+    <div class="details-section">
+        <h5>Technologies & Environnement technique</h5>
+        <p id="panelExtra"></p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

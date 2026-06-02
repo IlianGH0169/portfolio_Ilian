@@ -1,0 +1,616 @@
+/* VARIABLES DE DESIGN SYSTEM */
+:root {
+    --primary: #0ea5e9;
+    --primary-dark: #2563eb;
+    --primary-grad: linear-gradient(135deg, #0ea5e9, #2563eb);
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --bg-light: #f8fafc;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --radius-lg: 24px;
+    --radius-md: 14px;
+    --radius-sm: 8px;
+    --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.02), 0 2px 4px -1px rgba(0,0,0,0.01);
+    --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+    --shadow-lg: 0 25px 50px -12px rgba(15, 23, 42, 0.2);
+}
+
+/* RESET STANDARD & CONFIGURATION BASE */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif; }
+body { padding-top: 180px; background: var(--bg-light); color: var(--text-main); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+/* LAYOUT STRUCTURE */
+main { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px 60px 24px; }
+section { display: none; animation: fadeIn 0.4s ease-out; }
+section.active { display: block; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* COMPOSANTS CARTES DE BASE */
+.card { background: var(--card-bg); padding: 35px; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); margin-bottom: 30px; }
+.text-p { color: var(--text-muted); font-size: 1.05rem; }
+
+/* DESIGN TYPOGRAPHIE CLASSE */
+main h2 { font-size: 2.2rem; font-weight: 800; color: var(--text-main); letter-spacing: -0.7px; margin-bottom: 40px; position: relative; padding-left: 22px; }
+main h2::before { content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 6px; height: 90%; background: var(--primary-grad); border-radius: 10px; }
+.subtitle { font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin-bottom: 25px; }
+
+/* HEADER & ELEMENTS DE NAVIGATION */
+header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); z-index: 1000; border-bottom: 1px solid var(--border-color); }
+.top-header { display: flex; align-items: center; justify-content: space-between; padding: 20px 50px; max-width: 1300px; margin: 0 auto; }
+.profil { display: flex; align-items: center; gap: 20px; }
+.profil img { width: 55px; height: 55px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border-color); }
+.profil h1 { font-size: 1.35rem; font-weight: 700; color: var(--text-main); }
+.profil-subtitle { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
+
+/* BOUTONS ACTIONS EN EN-TÊTE */
+.header-buttons { display: flex; gap: 12px; }
+.header-buttons a { text-decoration: none; padding: 10px 20px; font-weight: 600; font-size: 0.9rem; border-radius: var(--radius-sm); transition: 0.2s ease; }
+.btn-primary { background: var(--primary-grad); color: white; box-shadow: 0 4px 12px rgba(14, 165, 233, 0.25); }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(14, 165, 233, 0.35); }
+.btn-secondary { background: var(--bg-light); color: var(--text-main); border: 1px solid var(--border-color); }
+.btn-secondary:hover { background: #f1f5f9; }
+
+/* NAV BAR PRINCIPALE */
+nav { position: relative; max-width: 1300px; margin: 0 auto; border-top: 1px solid #f1f5f9; }
+nav ul { display: flex; justify-content: center; list-style: none; gap: 40px; padding: 14px 0; }
+nav a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.95rem; transition: 0.2s; padding: 5px 0; }
+nav a.active, nav a:hover { color: var(--primary); }
+.nav-indicator { position: absolute; bottom: -1px; height: 3px; background: var(--primary); border-radius: 3px 3px 0 0; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+
+/* MENU DÉROULANT (DROPDOWN) AVEC PONT DE SURVOL INVISIBLE */
+.dropdown-nav { position: relative; }
+.dropdown-menu { 
+    position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(12px);
+    background: var(--card-bg); border-radius: var(--radius-sm); box-shadow: var(--shadow-md);
+    opacity: 0; pointer-events: none; transition: all 0.25s ease; min-width: 210px; padding: 8px 0; border: 1px solid var(--border-color);
+}
+.dropdown-menu::before { content: ""; position: absolute; top: -20px; left: 0; width: 100%; height: 20px; background: transparent; }
+.dropdown-nav:hover .dropdown-menu { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+.dropdown-menu div { padding: 11px 20px; cursor: pointer; font-size: 0.9rem; font-weight: 500; color: var(--text-muted); transition: 0.2s; }
+.dropdown-menu div:hover { background: #f0f9ff; color: var(--primary); }
+
+/* BLOCS ONGLETS DE PROJETS INTERNES */
+.projets-block { display: none; }
+.projets-block.active { display: block; }
+.tabs-projets { display: flex; gap: 8px; background: #f1f5f9; padding: 6px; border-radius: var(--radius-md); width: fit-content; margin-bottom: 35px; }
+.projet-tab-btn { padding: 10px 22px; border: none; background: transparent; color: var(--text-muted); border-radius: 10px; cursor: pointer; font-weight: 600; font-size: 13px; transition: all 0.2s ease; }
+.projet-tab-btn:hover { color: var(--primary); }
+.projet-tab-btn.active { background: var(--card-bg); color: var(--primary); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* GRILLE ET CASES DU PORTFOLIO */
+.projets-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; width: 100%; }
+.projet-card { background: var(--card-bg); border-radius: var(--radius-md); border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between; min-height: 290px; cursor: pointer; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); overflow: hidden; box-shadow: var(--shadow-sm); }
+.projet-card:hover { transform: translateY(-6px); border-color: var(--primary); box-shadow: var(--shadow-md); }
+.card-inner { padding: 28px; }
+
+/* STYLISATION DES TEXTES CARTES */
+.category-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 14px; padding: 2px 8px; border-radius: 4px; }
+.tag-dev { background: #e0f2fe; color: #0369a1; }
+.tag-opti { background: #f3e8ff; color: #6b21a8; }
+.tag-sys { background: #fef3c7; color: #92400e; }
+.tag-data { background: #dcfce7; color: #166534; }
+.tag-mgmt { background: #e11d4812; color: #e11d48; }
+.tag-prof { background: #f1f5f9; color: #475569; }
+
+.projet-card h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; color: var(--text-main); line-height: 1.4; }
+.card-description { font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* BADGES MIGNONS */
+.skills-badges { display: flex; flex-wrap: wrap; gap: 6px; }
+.badge { background: #f1f5f9; color: var(--text-main); padding: 5px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; border: 1px solid #e2e8f0; }
+.card-footer { padding: 16px 28px; background: #fafafa; border-top: 1px solid #edf2f7; font-size: 12px; font-weight: 600; color: var(--primary); display: flex; justify-content: space-between; align-items: center; }
+.projet-card:hover .card-footer { background: #f0f9ff; }
+
+/* MODALE CENTRALE (POP-UP STANDARDISES) */
+.details-panel { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.96); width: 680px; max-width: 92%; max-height: 85vh; background: var(--card-bg); z-index: 2000; padding: 45px; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); opacity: 0; pointer-events: none; transition: all 0.25s cubic-bezier(0.34, 1.3, 0.64, 1); overflow-y: auto; }
+.details-panel.active { opacity: 1; pointer-events: auto; transform: translate(-50%, -50%) scale(1); }
+.panel-overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.5); backdrop-filter: blur(6px); display: none; z-index: 1999; }
+.panel-overlay.active { display: block; }
+
+/* CONTENU DE LA MODALE POP-UP */
+.description-full { font-size: 1.05rem; color: var(--text-main); line-height: 1.7; margin-bottom: 30px; }
+.details-section { margin-top: 25px; padding-top: 25px; border-top: 1px solid var(--border-color); }
+.details-section h5 { text-transform: uppercase; font-size: 11px; letter-spacing: 1.2px; color: var(--text-muted); margin-bottom: 16px; font-weight: 700; }
+.badge-ac-complet { background: #f0f9ff; border-left: 4px solid var(--primary); padding: 12px 16px; margin-bottom: 10px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-size: 0.92rem; color: #334155; line-height: 1.5; }
+.badge-ac-complet strong { color: var(--primary-dark); }
+#panelExtra { background: #f8fafc; padding: 12px 16px; border-radius: var(--radius-sm); color: var(--text-muted); font-size: 0.95rem; font-weight: 600; border: 1px solid var(--border-color); }
+
+.close-btn { position: absolute; top: 20px; right: 25px; cursor: pointer; font-size: 32px; color: #a0aec0; transition: 0.2s; }
+.close-btn:hover { color: var(--text-main); }
+
+/* TIMELINE - POUR LE PARCOURS SCOLAIRE */
+.timeline { 
+    position: relative; 
+    padding-left: 30px; /* Un peu plus d'espace à gauche pour respirer */
+    margin-top: 15px; 
+}
+
+/* La ligne verticale adaptative automatique */
+.timeline::before { 
+    content: ""; 
+    position: absolute; 
+    left: 4px; 
+    top: 10px; 
+    bottom: 15px; /* S'arrête automatiquement au niveau du dernier point */
+    width: 2px; 
+    background: var(--border-color); 
+}
+
+/* ÉCART PLUS IMPORTANT ENTRE CHAQUE ÉTAPE */
+.timeline-item { 
+    position: relative; 
+    margin-bottom: 50px; /* Augmenté à 50px pour un effet très moderne et aéré */
+}
+
+/* On retire l'espace inutile après le tout dernier élément */
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* LE POINT CHRONOLOGIQUE SUR CHAQUE ÉTAPE */
+.timeline-dot { 
+    position: absolute; 
+    left: -30px; /* Parfaitement aligné sur la ligne */
+    top: 6px; 
+    width: 10px; 
+    height: 10px; 
+    border-radius: 50%; 
+    background: var(--primary-grad); /* Reprend ton dégradé bleu ciel/bleu roi */
+    border: 3px solid var(--card-bg); /* Masque la ligne sous le point */
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15); /* Léger halo lumineux discret */
+}
+
+/* TEXTES DE CHAQUE ÉTAPE */
+.timeline-content h4 { 
+    font-size: 1.15rem; 
+    font-weight: 700; 
+    color: var(--text-main); 
+    line-height: 1.3;
+}
+
+.timeline-date { 
+    font-size: 0.85rem; 
+    color: var(--primary); 
+    font-weight: 600; 
+    display: block; 
+    margin: 6px 0 10px 0; /* Décale le texte de description sous la date */
+}
+
+.timeline-content p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* MISC / FOOTNOTE / EMPTY STATE */
+.footnote { font-size: 0.85rem; color: var(--text-muted); margin-top: 30px; font-style: italic; }
+.empty-state { text-align: center; padding: 40px 20px; color: var(--text-muted); font-style: italic; border: 2px dashed var(--border-color); border-radius: var(--radius-md); }
+
+/* DESIGN DU HUB DE PRÉSENTATION - VERSION MINI PRO */
+.presentation-hub {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border-color);
+}
+
+.hub-title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.hub-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 24px;
+    background: var(--card-bg); /* Reste blanc */
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* DESIGN DU HUB DE PRÉSENTATION (CHARTE BLEU & BLANC) */
+.presentation-hub {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.hub-title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #666666;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.hub-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 24px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Effet au survol identique à tes cartes projets */
+.hub-btn:hover {
+    border-color: #007BFF;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0, 123, 255, 0.1);
+}
+
+.hub-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.hub-btn-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #333333;
+    transition: color 0.2s ease;
+}
+
+.hub-btn:hover .hub-btn-title {
+    color: #007BFF; /* Devient bleu au survol */
+}
+
+.hub-btn-desc {
+    font-size: 0.82rem;
+    color: #666666;
+}
+
+.hub-arrow {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #007BFF;
+    transition: transform 0.25s ease;
+}
+
+.hub-btn:hover .hub-arrow {
+    transform: translateX(6px); /* Animation de la flèche vers la droite */
+}
+
+/* LE TITRE DANS LA POP-UP (STRICTEMENT ALIGNÉ SUR LE STYLE DES H2) */
+#panelTitle {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1a202c; /* Ton noir/gris foncé de section */
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    
+    /* La bordure remplace le positionnement absolu pour ne pas casser la carte */
+    border-left: 6px solid #007BFF; /* Ton bleu de DA */
+    padding-left: 15px;
+    
+    /* On garde une marge basse propre sans toucher aux autres côtés */
+    margin: 0 0 25px 0; 
+}
+
+/* BANDEAU DE STATISTIQUES DES PROJETS (VERSION HAUT DE PAGE) */
+.projects-counter-box {
+    margin-top: 15px;      /* Léger espace avec les boutons des semestres */
+    margin-bottom: 30px;   /* Espace important pour aérer le haut des cartes de projets */
+    padding: 18px 24px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.01);
+}
+
+.counter-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.counter-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #666666;
+}
+
+.counter-value {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #007BFF;
+    background: rgba(0, 123, 255, 0.06);
+    padding: 4px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 123, 255, 0.15);
+}
+
+.counter-divider {
+    width: 1px;
+    height: 28px;
+    background-color: #e2e8f0;
+}
+
+/* ==========================================================================
+   STYLE EXCLUSIF : UNIQUE PROJET SEMESTRE 3 (HERO CARD)
+   ========================================================================== */
+
+.unique-project-container {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.projet-card-unique {
+    background: var(--card-bg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+    opacity: 1; /* Rétablit la visibilité par défaut */
+    
+    /* Transition fluide pour le survol (hover) */
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                border-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* DÉCLENCHEMENT DE L'ANIMATION LORSQUE L'ONGLET S3 EST ACTIF */
+.tab-content.active .projet-card-unique {
+    animation: uniqueCardFadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* EFFET HOVER */
+.projet-card-unique:hover {
+    transform: translateY(-6px) !important;
+    border-color: var(--primary) !important;
+    box-shadow: var(--shadow-md) !important;
+}
+
+.card-unique-header {
+    padding: 30px 35px 15px 35px;
+}
+
+.card-unique-header h4 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.4;
+    margin-top: 5px;
+}
+
+.card-unique-body {
+    padding: 0 35px 30px 35px;
+}
+
+.card-description-unique {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.skills-badges-unique {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.card-unique-footer {
+    padding: 16px 35px;
+    background: #fafafa;
+    border-top: 1px solid #edf2f7;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s ease;
+}
+
+.arrow-unique {
+    font-weight: 700;
+}
+
+.projet-card-unique:hover .card-unique-footer {
+    background: #f0f9ff;
+}
+
+/* KEYFRAMES DE L'ANIMATION D'APPARITION */
+@keyframes uniqueCardFadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   STYLE EXCLUSIF : UNIQUE PROJET SEMESTRE 3 (HERO CARD)
+   ========================================================================== */
+
+.unique-project-container {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.projet-card-unique {
+    background: var(--card-bg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+    
+    /* Transition fluide dédiée au survol */
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                border-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* L'EFFET HOVER DE LA CARTE UNIQUE REFONCTIONNE PARFAITEMENT */
+.projet-card-unique:hover {
+    transform: translateY(-6px);
+    border-color: var(--primary);
+    box-shadow: var(--shadow-md);
+}
+
+.card-unique-header {
+    padding: 30px 35px 15px 35px;
+}
+
+.card-unique-header h4 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.4;
+    margin-top: 5px;
+}
+
+.card-unique-body {
+    padding: 0 35px 30px 35px;
+}
+
+.card-description-unique {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.skills-badges-unique {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.card-unique-footer {
+    padding: 16px 35px;
+    background: #fafafa;
+    border-top: 1px solid #edf2f7;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s ease;
+}
+
+.arrow-unique {
+    font-weight: 700;
+}
+
+.projet-card-unique:hover .card-unique-footer {
+    background: #f0f9ff;
+}
+
+
+/* ==========================================================================
+   SYSTÈME D'ANIMATION D'APPARITION EN DÉCALÉ SANS CONFLIT (BACKWARDS)
+   ========================================================================== */
+
+@keyframes cardFadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    /* Pas de bloc 'to' : l'élément retourne naturellement à son état CSS de base */
+}
+
+/* Déclenchement sur les cartes classiques */
+.tab-content.active .projet-card {
+    animation: cardFadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+/* Déclenchement sur la grande carte unique */
+.tab-content.active .projet-card-unique {
+    animation: cardFadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+    animation-delay: 0.05s;
+}
+
+/* Gestion fine du décalage (stagger) pour la grille */
+.tab-content.active .projet-card:nth-child(1) { animation-delay: 0.05s; }
+.tab-content.active .projet-card:nth-child(2) { animation-delay: 0.12s; }
+.tab-content.active .projet-card:nth-child(3) { animation-delay: 0.19s; }
+.tab-content.active .projet-card:nth-child(4) { animation-delay: 0.26s; }
+.tab-content.active .projet-card:nth-child(5) { animation-delay: 0.33s; }
+.tab-content.active .projet-card:nth-child(6) { animation-delay: 0.40s; }
+
+/* ==========================================================================
+   STYLE DU BLOC EXPÉRIENCES (STYLE HARMONISÉ AVEC LES GROS TITRES)
+   ========================================================================== */
+
+.company-title {
+    color: var(--primary);           /* Reprend le bleu officiel de votre DA */
+    font-size: 1.3rem;               /* Taille intermédiaire, plus petite qu'un h2 mais bien visible */
+    font-weight: 700;
+    
+    /* LE RAPPEL DES GROS TITRES : Un trait vertical sur le côté */
+    border-left: 4px solid var(--primary-dark); /* Trait de 4px (plus discret que les 6px des grands titres) */
+    padding-left: 12px;              /* Ajuste l'espace entre le trait bleu et le texte */
+    
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+/* Ajoute un espacement généreux au-dessus de la deuxième entreprise pour aérer */
+.company-title:not(:first-child) {
+    margin-top: 35px;
+}
+
+.projet-card-unique {
+    border-left: 5px solid #6366f1 !important; /* Un bel accent indigo qui montre la fusion des cases */
+}
+
+@media (max-width: 650px) {
+    .projects-counter-box {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+    .counter-divider {
+        display: none;
+    }
+}
+
