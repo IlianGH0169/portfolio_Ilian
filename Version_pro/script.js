@@ -79,7 +79,20 @@ document.addEventListener("DOMContentLoaded", () => {
 		"AC16.01": "Appréhender l’écosystème numérique",
 		"AC16.02": "Découvrir les aptitudes requises selon les différents secteurs informatiques (RSE, contraintes)",
 		"AC16.03": "Identifier les statuts, les fonctions et les rôles de chaque membre d’une équipe pluridisciplinaire",
-		"AC16.04": "Acquérir les compétences interpersonnelles pour travailler en équipe"
+		"AC16.04": "Acquérir les compétences interpersonnelles pour travailler en équipe",
+		"AC21.01": "Élaborer et implémenter les spécifications fonctionnelles et non fonctionnelles à partir des exigences",
+		"AC21.02": "Appliquer des principes d’accessibilité et d’ergonomie",
+		"AC21.03": "Adopter de bonnes pratiques de conception et de programmation",
+		"AC21.04": "Vérifier et valider la qualité de l’application par les tests",
+		"AC22.01": "Choisir des structures de données complexes adaptées au problème",
+		"AC22.02": "Utiliser des techniques algorithmiques adaptées pour des problèmes complexes (recherche, méthodes arborescentes, optimisations globales...)",
+		"AC23.02": "Utiliser des serveurs et des services réseaux virtualisés",
+		"AC24.02": "Assurer la sécurité des données (intégrité et confidentialité)",
+		"AC24.04": "Manipuler des données hétérogènes",
+		"AC25.02": "Formaliser les besoins du client et de l'utilisateur",
+		"AC25.03": "Identifier les critères de faisabilité d’un projet informatique",
+		"AC25.04": "Définir et mettre en œuvre une démarche de suivi de projet",
+		"AC26.03": "Mobiliser les compétences interpersonnelles pour travailler dans une équipe informatique"
 	};
 
     // Gestion de l'indicateur de navigation

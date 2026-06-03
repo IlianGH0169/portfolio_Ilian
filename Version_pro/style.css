@@ -62,17 +62,73 @@ nav a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-
 nav a.active, nav a:hover { color: var(--primary); }
 .nav-indicator { position: absolute; bottom: -1px; height: 3px; background: var(--primary); border-radius: 3px 3px 0 0; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
 
-/* MENU DÉROULANT (DROPDOWN) AVEC PONT DE SURVOL INVISIBLE */
-.dropdown-nav { position: relative; }
-.dropdown-menu { 
-    position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(12px);
-    background: var(--card-bg); border-radius: var(--radius-sm); box-shadow: var(--shadow-md);
-    opacity: 0; pointer-events: none; transition: all 0.25s ease; min-width: 210px; padding: 8px 0; border: 1px solid var(--border-color);
+/* ==========================================================================
+   MENU DÉROULANT (DROPDOWN) ULTRA-FLUIDE ET APPLICATIF
+   ========================================================================== */
+.dropdown-nav { 
+    position: relative; 
 }
-.dropdown-menu::before { content: ""; position: absolute; top: -20px; left: 0; width: 100%; height: 20px; background: transparent; }
-.dropdown-nav:hover .dropdown-menu { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
-.dropdown-menu div { padding: 11px 20px; cursor: pointer; font-size: 0.9rem; font-weight: 500; color: var(--text-muted); transition: 0.2s; }
-.dropdown-menu div:hover { background: #f0f9ff; color: var(--primary); }
+
+.dropdown-menu { 
+    position: absolute; 
+    top: 100%; 
+    left: 50%; 
+    /* EFFET PREMIUM : On part d'un tout petit peu plus haut avec un léger zoom arrière */
+    transform: translateX(-50%) translateY(-4px) scale(0.96);
+    transform-origin: top center;
+    background: var(--card-bg); 
+    border-radius: var(--radius-md); /* Utilise ton arrondi md pour harmoniser avec les cartes */
+    box-shadow: var(--shadow-lg);    /* Ombre plus enveloppante et qualitative */
+    opacity: 0; 
+    pointer-events: none; 
+    
+    /* Courbe de transition ultra-rapide et amortie (style iOS/App moderne) */
+    transition: opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.22s cubic-bezier(0.16, 1, 0.3, 1); 
+    
+    min-width: 230px; 
+    padding: 8px; /* Un peu plus d'espace interne */
+    border: 1px solid var(--border-color);
+    z-index: 1010;
+}
+
+/*PONT INVISIBLE SÉCURISÉ : Élargi pour ne JAMAIS perdre le focus de la souris */
+.dropdown-menu::before { 
+    content: ""; 
+    position: absolute; 
+    top: -25px; 
+    left: 0; 
+    width: 100%; 
+    height: 32px; 
+    background: transparent; 
+}
+
+/* ÉTAT AFFICHÉ AU SURVOL : Descente douce et retour à la taille 100% */
+.dropdown-nav:hover .dropdown-menu { 
+    opacity: 1; 
+    pointer-events: auto; 
+    transform: translateX(-50%) translateY(8px) scale(1); 
+}
+
+/* LIGNES INTERNES DU MENU DROPDOWN */
+.dropdown-menu div { 
+    padding: 10px 16px; 
+    cursor: pointer; 
+    font-size: 0.9rem; 
+    font-weight: 600; /* Légèrement plus épais pour s'aligner sur ton style nav */
+    color: var(--text-muted); 
+    border-radius: var(--radius-sm); /* Ajoute un arrondi léger sur le fond au survol */
+    display: flex;
+    align-items: center;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease; 
+}
+
+/*EFFET HOVER SUR CHAQUE OPTION */
+.dropdown-menu div:hover { 
+    background: rgba(14, 165, 233, 0.08); /* Joli fond bleu translucide (basé sur ta couleur primaire) */
+    color: var(--primary-dark); 
+    transform: translateX(4px); /* Léger glissement vers la droite très qualitatif */
+}
 
 /* BLOCS ONGLETS DE PROJETS INTERNES */
 .projets-block { display: none; }
@@ -909,6 +965,58 @@ nav a.active, nav a:hover { color: var(--primary); }
 
 .classy-list li:hover::before {
     transform: scale(1.3);         /* La puce grossit subtilement sous la souris */
+}
+
+/* CONTEXTE GLOBAL DE LA LISTE ÉPURÉE */
+.sleek-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 15px 0;
+}
+
+/* STYLE DE CHAQUE ÉLÉMENT <li> */
+.sleek-list li {
+    position: relative;
+    padding-left: 24px;       /* Espace pour le tiret minimaliste */
+    margin-bottom: 10px;
+    color: var(--text-muted);  /* Texte volontairement adouci pour l'effet épuré */
+    font-size: 0.92rem;
+    line-height: 1.6;
+    cursor: default;
+    
+    /* Transition fluide pour la couleur du texte */
+    transition: color 0.25s ease;
+}
+
+/* LE TIRET ULTRA-FIN */
+.sleek-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;               /* Largeur de base du petit trait */
+    height: 1.5px;             /* Épaisseur d'une finesse absolue */
+    background-color: var(--border-color); /* Couleur grise très discrète par défaut */
+    
+    /* Transition pour l'allongement du trait */
+    transition: width 0.25s ease, background-color 0.25s ease;
+}
+
+/*EFFET HOVER ULTRA-SUBTIL */
+.sleek-list li:hover {
+    color: var(--text-main);   /* Le texte redevient sombre et parfaitement lisible */
+}
+
+.sleek-list li:hover::before {
+    width: 20px;               /* Le trait s'allonge élégamment sans bouger le texte */
+    background-color: var(--primary); /* Il prend le bleu signature de ton portfolio */
+}
+
+/* Désactive le clic sur le titre principal du menu déroulant (Projets / Compétences) */
+.dropdown-nav > a {
+    pointer-events: none; /* Rend le texte totalement inclyquable */
+    cursor: default;      /* Remplace la petite main de lien par le pointeur normal */
 }
 
 #panelTitle::before {
