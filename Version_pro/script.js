@@ -86,13 +86,34 @@ document.addEventListener("DOMContentLoaded", () => {
 		"AC21.04": "Vérifier et valider la qualité de l’application par les tests",
 		"AC22.01": "Choisir des structures de données complexes adaptées au problème",
 		"AC22.02": "Utiliser des techniques algorithmiques adaptées pour des problèmes complexes (recherche, méthodes arborescentes, optimisations globales...)",
+		"AC22.03": "Comprendre les enjeux et moyens de sécurisation des données et du code",
+		"AC22.04": "Évaluer l’impact environnemental et sociétal des solutions proposées",
+		"AC23.01": "Concevoir et développer des applications communicantes",
 		"AC23.02": "Utiliser des serveurs et des services réseaux virtualisés",
+		"AC23.03": "Sécuriser les services et données d’un système",
+		"AC24.01": "Optimiser les modèles de données de l’entreprise",
 		"AC24.02": "Assurer la sécurité des données (intégrité et confidentialité)",
+		"AC24.03": "Organiser la restitution de données à travers la programmation et la visualisation",
 		"AC24.04": "Manipuler des données hétérogènes",
+		"AC25.01": "Identifier les processus présents dans une organisation en vue d’améliorer les systèmes d’information",
 		"AC25.02": "Formaliser les besoins du client et de l'utilisateur",
 		"AC25.03": "Identifier les critères de faisabilité d’un projet informatique",
 		"AC25.04": "Définir et mettre en œuvre une démarche de suivi de projet",
-		"AC26.03": "Mobiliser les compétences interpersonnelles pour travailler dans une équipe informatique"
+		"AC26.01": "Comprendre la diversité, la structure et la dimension de l’informatique dans une organisation (ESN, DSI,...)",
+		"AC26.02": "Appliquer une démarche pour intégrer une équipe informatique au sein d’une organisation",
+		"AC26.03": "Mobiliser les compétences interpersonnelles pour travailler dans une équipe informatique",
+		"AC26.04": "Rendre compte de son activité professionnelle",
+		"AC31.01": "Choisir et implémenter les architectures adaptées",
+		"AC31.02": "Faire évoluer une application existante",
+		"AC31.03": "Intégrer des solutions dans un environnement de production",
+		"AC33.01": "Créer des processus de traitement automatisé (solution de gestion de configuration et de parc, intégration et déploiement continu...)",
+		"AC33.02": "Configurer un serveur et des services réseaux de manière avancée (virtualisation...)",
+		"AC33.03": "Appliquer une politique de sécurité au niveau de l’infrastructure",
+		"AC33.04": "Déployer et maintenir un réseau d’organisation en fonction de ses besoins",
+		"AC36.01": "Organiser et partager une veille technologique et informationnelle",
+		"AC36.02": "Identifier les enjeux de l’économie de l’innovation numérique",
+		"AC36.03": "Guider la conduite du changement informatique au sein d’une organisation",
+		"AC36.04": "Accompagner le management de projet informatique"
 	};
 
     // Gestion de l'indicateur de navigation
@@ -273,7 +294,9 @@ document.addEventListener("DOMContentLoaded", () => {
 				{ code: "AC21.03", statut: "maitrise" },
 				{ code: "AC21.04", statut: "non-maitrise" },
 				// Année 3 (Exemple à adapter ou vider si besoin)
-				{ code: "AC31.01", statut: "non-maitrise" } 
+				{ code: "AC31.01", statut: "non-maitrise" },
+				{ code: "AC31.02", statut: "non-maitrise" },
+				{ code: "AC31.03", statut: "non-maitrise" } 
 			]
 		},
 		opti: {
@@ -287,7 +310,9 @@ document.addEventListener("DOMContentLoaded", () => {
 				{ code: "AC12.02", statut: "maitrise" },
 				{ code: "AC12.03", statut: "maitrise" },
 				{ code: "AC22.01", statut: "maitrise" },
-				{ code: "AC22.02", statut: "non-maitrise" }
+				{ code: "AC22.02", statut: "non-maitrise" },
+				{ code: "AC22.03", statut: "non-maitrise" },
+				{ code: "AC22.04", statut: "non-maitrise" }
 			]
 		},
 		sys: {
@@ -301,7 +326,13 @@ document.addEventListener("DOMContentLoaded", () => {
 				{ code: "AC13.02", statut: "maitrise" },
 				{ code: "AC13.03", statut: "maitrise" },
 				{ code: "AC13.04", statut: "maitrise" },
-				{ code: "AC23.02", statut: "non-maitrise" }
+				{ code: "AC23.01", statut: "non-maitrise" },
+				{ code: "AC23.02", statut: "non-maitrise" },
+				{ code: "AC23.03", statut: "non-maitrise" },
+				{ code: "AC33.01", statut: "non-maitrise" },
+				{ code: "AC33.02", statut: "non-maitrise" },
+				{ code: "AC33.03", statut: "non-maitrise" },
+				{ code: "AC33.04", statut: "non-maitrise" }
 			]
 		},
 		data: {
@@ -314,7 +345,9 @@ document.addEventListener("DOMContentLoaded", () => {
 				{ code: "AC14.01", statut: "maitrise" },
 				{ code: "AC14.02", statut: "maitrise" },
 				{ code: "AC14.03", statut: "maitrise" },
+				{ code: "AC24.01", statut: "maitrise" },
 				{ code: "AC24.02", statut: "maitrise" },
+				{ code: "AC24.03", statut: "non-maitrise" },
 				{ code: "AC24.04", statut: "non-maitrise" }
 			]
 		},
@@ -328,6 +361,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				{ code: "AC15.01", statut: "maitrise" },
 				{ code: "AC15.02", statut: "maitrise" },
 				{ code: "AC15.03", statut: "maitrise" },
+				{ code: "AC25.01", statut: "non maitrise" },
 				{ code: "AC25.02", statut: "maitrise" },
 				{ code: "AC25.03", statut: "maitrise" },
 				{ code: "AC25.04", statut: "non-maitrise" }
@@ -344,7 +378,14 @@ document.addEventListener("DOMContentLoaded", () => {
 				{ code: "AC16.02", statut: "maitrise" },
 				{ code: "AC16.03", statut: "maitrise" },
 				{ code: "AC16.04", statut: "maitrise" },
-				{ code: "AC26.03", statut: "non-maitrise" }
+				{ code: "AC26.01", statut: "non-maitrise" },
+				{ code: "AC26.02", statut: "non-maitrise" },
+				{ code: "AC26.03", statut: "non-maitrise" },
+				{ code: "AC26.04", statut: "non-maitrise" },
+				{ code: "AC36.01", statut: "non-maitrise" },
+				{ code: "AC36.02", statut: "non-maitrise" },
+				{ code: "AC36.03", statut: "non-maitrise" },
+				{ code: "AC36.04", statut: "non-maitrise" }
 			]
 		}
 	};
