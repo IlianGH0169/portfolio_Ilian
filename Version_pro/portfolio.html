@@ -11,7 +11,7 @@
 <header>
     <div class="top-header">
         <div class="profil">
-            <img src="photo.jpg" alt="Photo de profil">
+            <img src="illustrations/photo_profil.jpg" alt="Photo de profil">
             <div class="profil-text">
                 <h1>BOUSSAID Ilian</h1>
                 <p class="profil-subtitle">Étudiant en BUT Informatique</p>
@@ -20,7 +20,7 @@
 
         <div class="header-buttons">
             <a href="https://www.linkedin.com/in/ilian-boussaid" target="_blank" class="btn-secondary">LinkedIn</a>
-            <a href="cv.pdf" target="_blank" class="btn-primary">Voir le CV</a>
+            <a href="fichiers/CV.pdf" target="_blank" class="btn-primary">Voir le CV</a>
         </div>
     </div>
 
@@ -34,7 +34,8 @@
                     <div data-subtab="projets-block">Mes Projets</div>
                 </div>
             </li>
-            <li><a href="#" data-tab="experiences">Expériences professionnelles</a></li>
+            <li><a href="#" data-tab="progression-competences">Progression des compétences</a></li>
+			<li><a href="#" data-tab="experiences">Expériences professionnelles</a></li>
             <li><a href="#" data-tab="contact">Contact</a></li>
         </ul>
         <div class="nav-indicator"></div>
@@ -96,7 +97,7 @@
                     <span class="hub-arrow">→</span>
                 </a>
 
-                <a href="cv.pdf" target="_blank" class="hub-btn">
+                <a href="fichiers/CV.pdf" target="_blank" class="hub-btn">
                     <div class="hub-text">
                         <span class="hub-btn-title">Télécharger mon CV</span>
                         <span class="hub-btn-desc">Format PDF standardisé</span>
@@ -228,7 +229,7 @@
 						 Finalement, le travail dépassait nos attentes."
 						 data-ac="Aucun"
                          data-extra="Python, HTML, CSS, JS, Flag réseau, Travail d'équipe, SQL">
-                        
+                         
                         <div class="card-unique-header">
                             <span class="category-tag tag-dev">Développement</span>
                             <span class="category-tag tag-opti">Optimisation</span>
@@ -270,7 +271,8 @@
                         data-title="SAÉ 1.01 : Annuaire en C" 
                         data-desc="Le projet consistait à concevoir, en C, un programme de gestion d'annuaires de clients. Cela mettait en jeu mes compétences de réflexion, de logique, et l'utilisation d'algorithme complexe (tris, filtres). La lecture est la construction de l'annuaire se basait sur un fichier CSV."
                         data-ac="AC11.01, AC11.02, AC11.03, AC11.04"
-                        data-extra="Langage C, Algorithmique, Exploitation de données, CSV">
+                        data-extra="Langage C, Algorithmique, Exploitation de données, CSV"
+						data-illustrations="illustrations\annuaire.jpg">
                         <div class="card-inner">
                             <span class="category-tag tag-dev">Développement</span>
                             <h4>SAÉ 1.01 : Annuaire en C</h4>
@@ -559,9 +561,12 @@
 						 - Système de reprise du crackage,
 						 - Parallèlisme de threading,
 						 - Progression du crackage en temps réel...
-						 La manipulation des fichiers shadow et passwd de Linux est essentielle (comprendre le Salt, et les algorithmes de hashage)."
+						 - Utilisation d'un makefile.
+						 La manipulation des fichiers shadow et passwd de Linux est essentielle (comprendre le Salt, et les algorithmes de hashage).
+						 En illustrations, les fichiers passwd, shadow, les interfaces de l'application et des résultats de certains mots de passes crackés (simulation)."
                          data-ac="AC21.01, AC21.02, AC21.03, AC21.04, AC22.01, AC22.02, AC23.02, AC24.02, AC24.04, AC25.02, AC25.03, AC25.04, AC26.03"
-                         data-extra="Linux, Bash, Langage C, Attaques informatique, Sécurité, Parallèlisme, Travail d'équipe, Salt, Hash, Algorithme SHA-256, Dictionnaire, Bruteforce, Fichier shadow">
+                         data-extra="Linux, Bash, Langage C, Attaques informatique, Sécurité, Parallèlisme, Travail d'équipe, Salt, Hash, Algorithme SHA-256, Dictionnaire, Bruteforce, Fichier shadow"
+                         data-illustrations="illustrations/passwd.png, illustrations/shadow.png, illustrations/man.png, illustrations/parallelisme.png, illustrations/logs.png, illustrations/make_install.png, illustrations/test_result_crack.png">
                         
                         <div class="card-unique-header">
                             <span class="category-tag tag-dev">Développement</span>
@@ -647,6 +652,74 @@
         </div>
     </section>
 
+	<section id="progression-competences">
+		<h2>Progression des compétences</h2>
+		
+		<div class="skills-progress-grid">
+			
+			<div class="progress-card item-dev" data-skill="dev">
+				<div class="progress-info">
+					<span class="progress-label">Développement Application & Web</span>
+					<span class="progress-percentage">90%</span>
+				</div>
+				<div class="progress-track">
+					<div class="progress-fill" style="width: 90%;"></div>
+				</div>
+			</div>
+
+			<div class="progress-card item-opti" data-skill="opti">
+				<div class="progress-info">
+					<span class="progress-label">Algorithmique & Optimisation</span>
+					<span class="progress-percentage">75%</span>
+				</div>
+				<div class="progress-track">
+					<div class="progress-fill" style="width: 75%;"></div>
+				</div>
+			</div>
+
+			<div class="progress-card item-sys" data-skill="sys">
+				<div class="progress-info">
+					<span class="progress-label">Architecture Réseaux & Système</span>
+					<span class="progress-percentage">65%</span>
+				</div>
+				<div class="progress-track">
+					<div class="progress-fill" style="width: 65%;"></div>
+				</div>
+			</div>
+
+			<div class="progress-card item-data" data-skill="data">
+				<div class="progress-info">
+					<span class="progress-label">Bases de Données & Data Science</span>
+					<span class="progress-percentage">80%</span>
+				</div>
+				<div class="progress-track">
+					<div class="progress-fill" style="width: 80%;"></div>
+				</div>
+			</div>
+
+			<div class="progress-card item-mgmt" data-skill="mgmt">
+				<div class="progress-info">
+					<span class="progress-label">Gestion de Projet & Méthodes Agiles</span>
+					<span class="progress-percentage">70%</span>
+				</div>
+				<div class="progress-track">
+					<div class="progress-fill" style="width: 70%;"></div>
+				</div>
+			</div>
+
+			<div class="progress-card item-prof" data-skill="prof">
+				<div class="progress-info">
+					<span class="progress-label">Communication & Posture Pro</span>
+					<span class="progress-percentage">85%</span>
+				</div>
+				<div class="progress-track">
+					<div class="progress-fill" style="width: 85%;"></div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+	
     <section id="experiences">
 		<div class="projets-block active">
 			<h2>Expériences professionnelles</h2>
@@ -826,7 +899,7 @@
 			</p>
 			
 			<div class="contact-actions">
-				<a href="fichiers/mon-cv.pdf" class="btn-contact cv-btn" download>
+				<a href="fichiers/CV.pdf" class="btn-contact cv-btn" download>
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="btn-icon">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
 					</svg>
@@ -867,6 +940,16 @@
     </div>
 	
 	<div id="panelIllustrations">Livrables</div>
+</div>
+
+<!-- BANQUE HTML DE LA POPUP DES COMPÉTENCES (À METTRE TOUT EN BAS) -->
+<div id="skillsModal" class="skills-modal">
+    <div class="skills-modal-content">
+        <span class="skills-modal-close">&times;</span>
+        <h3 id="modalSkillTitle">Titre de la compétence</h3>
+        <div id="modalSkillBadge" class="skill-badge">Catégorie</div>
+        <p id="modalSkillDescription">Description détaillée...</p>
+    </div>
 </div>
 
 <script src="script.js"></script>

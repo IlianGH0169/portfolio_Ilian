@@ -252,6 +252,225 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.style.overflow = 'auto'; // Restaure le scroll
     };
 
+	
+	// Données textuelles pour la popup des compétences structurées par AC et statut
+	const detailsCompetences = {
+		dev: {
+			title: "Développement d'Applications & Web",
+			badge: "Compétence 1",
+			color: "#0369a1",
+			bg: "#e0f2fe",
+			text: "Cette compétence valide ma capacité à concevoir, coder et tester des applications robustes.",
+			ac: [
+				// Année 1
+				{ code: "AC11.01", statut: "maitrise" },
+				{ code: "AC11.02", statut: "maitrise" },
+				{ code: "AC11.03", statut: "maitrise" },
+				{ code: "AC11.04", statut: "maitrise" },
+				// Année 2
+				{ code: "AC21.01", statut: "maitrise" },
+				{ code: "AC21.02", statut: "maitrise" },
+				{ code: "AC21.03", statut: "maitrise" },
+				{ code: "AC21.04", statut: "non-maitrise" },
+				// Année 3 (Exemple à adapter ou vider si besoin)
+				{ code: "AC31.01", statut: "non-maitrise" } 
+			]
+		},
+		opti: {
+			title: "Algorithmique & Optimisation",
+			badge: "Compétence 2",
+			color: "#6b21a8",
+			bg: "#f3e8ff",
+			text: "Analyse et optimisation des performances de calcul et d'organisation des données.",
+			ac: [
+				{ code: "AC12.01", statut: "maitrise" },
+				{ code: "AC12.02", statut: "maitrise" },
+				{ code: "AC12.03", statut: "maitrise" },
+				{ code: "AC22.01", statut: "maitrise" },
+				{ code: "AC22.02", statut: "non-maitrise" }
+			]
+		},
+		sys: {
+			title: "Architecture Réseaux & Système",
+			badge: "Compétence 3",
+			color: "#92400e",
+			bg: "#fef3c7",
+			text: "Installation, configuration et sécurisation des infrastructures informatiques.",
+			ac: [
+				{ code: "AC13.01", statut: "maitrise" },
+				{ code: "AC13.02", statut: "maitrise" },
+				{ code: "AC13.03", statut: "maitrise" },
+				{ code: "AC13.04", statut: "maitrise" },
+				{ code: "AC23.02", statut: "non-maitrise" }
+			]
+		},
+		data: {
+			title: "Bases de Données & Data Science",
+			badge: "Compétence 4",
+			color: "#166534",
+			bg: "#dcfce7",
+			text: "Modélisation, manipulation et sécurisation des données de l'entreprise.",
+			ac: [
+				{ code: "AC14.01", statut: "maitrise" },
+				{ code: "AC14.02", statut: "maitrise" },
+				{ code: "AC14.03", statut: "maitrise" },
+				{ code: "AC24.02", statut: "maitrise" },
+				{ code: "AC24.04", statut: "non-maitrise" }
+			]
+		},
+		mgmt: {
+			title: "Gestion de Projet & Méthodes Agiles",
+			badge: "Compétence 5",
+			color: "#e11d48",
+			bg: "#e11d4812",
+			text: "Planification, suivi et management d'un cycle de développement informatique.",
+			ac: [
+				{ code: "AC15.01", statut: "maitrise" },
+				{ code: "AC15.02", statut: "maitrise" },
+				{ code: "AC15.03", statut: "maitrise" },
+				{ code: "AC25.02", statut: "maitrise" },
+				{ code: "AC25.03", statut: "maitrise" },
+				{ code: "AC25.04", statut: "non-maitrise" }
+			]
+		},
+		prof: {
+			title: "Communication & Posture Pro",
+			badge: "Compétence 6",
+			color: "#475569",
+			bg: "#f1f5f9",
+			text: "Développement des soft-skills et intégration dans l'écosystème numérique.",
+			ac: [
+				{ code: "AC16.01", statut: "maitrise" },
+				{ code: "AC16.02", statut: "maitrise" },
+				{ code: "AC16.03", statut: "maitrise" },
+				{ code: "AC16.04", statut: "maitrise" },
+				{ code: "AC26.03", statut: "non-maitrise" }
+			]
+		}
+	};
+
+	// Éléments du DOM
+	const skillsModal = document.getElementById('skillsModal');
+	const closeSkillsBtn = document.querySelector('.skills-modal-close');
+
+	// Écoute du clic sur les cartes de compétences (Jauges de progression)
+	document.querySelectorAll('.progress-card').forEach(card => {
+		card.addEventListener('click', () => {
+			const skillKey = card.getAttribute('data-skill');
+			const data = detailsCompetences[skillKey];
+
+			if (data) {
+				// Remplissage basique de la popup
+				document.getElementById('modalSkillTitle').innerText = data.title;
+				document.getElementById('modalSkillDescription').innerText = data.text;
+				
+				// Personnalisation du badge de la popup
+				const badge = document.getElementById('modalSkillBadge');
+				badge.innerText = data.badge;
+				badge.style.color = data.color;
+				badge.style.backgroundColor = data.bg;
+
+				// --- GENERATION GENERALE DU TRI PAR ANNEE ---
+				let acContainer = document.getElementById('modalSkillAC');
+				if (!acContainer) {
+					acContainer = document.createElement('div');
+					acContainer.id = 'modalSkillAC';
+					document.getElementById('modalSkillDescription').after(acContainer);
+				}
+				acContainer.innerHTML = ''; // Reset de la précédente vue
+
+				// 1. Création de la barre d'onglets Année 1, 2, 3
+				const tabsWrapper = document.createElement('div');
+				tabsWrapper.className = 'ac-years-tabs';
+				tabsWrapper.innerHTML = `
+					<button class="year-tab-btn active" data-year="1">Année 1</button>
+					<button class="year-tab-btn" data-year="2">Année 2</button>
+					<button class="year-tab-btn" data-year="3">Année 3</button>
+				`;
+				acContainer.appendChild(tabsWrapper);
+
+				// Fonction utilitaire pour appliquer dynamiquement la couleur de la compétence sur l'onglet actif
+				const applyActiveTabColor = (activeBtn) => {
+					tabsWrapper.querySelectorAll('.year-tab-btn').forEach(btn => {
+						btn.style.backgroundColor = '';
+						btn.style.color = '';
+						btn.style.borderColor = '';
+					});
+					activeBtn.style.backgroundColor = data.color;
+					activeBtn.style.color = '#ffffff';
+					activeBtn.style.borderColor = data.color;
+				};
+
+				// Coloration initiale du premier onglet (Année 1)
+				applyActiveTabColor(tabsWrapper.querySelector('[data-year="1"]'));
+
+				// 2. Création du conteneur des listes
+				const listsWrapper = document.createElement('div');
+				listsWrapper.className = 'ac-years-lists';
+				acContainer.appendChild(listsWrapper);
+
+				// 3. Dispatch des AC dans les bonnes listes d'années
+				[1, 2, 3].forEach(year => {
+					const yearList = document.createElement('div');
+					yearList.className = `ac-list year-content-${year} ${year === 1 ? 'active' : ''}`;
+
+					// Filtrage intelligent : regarde le premier chiffre après "AC" (ex: AC11 -> Année 1, AC21 -> Année 2)
+					const acsForYear = data.ac.filter(item => {
+						const numAnnee = parseInt(item.code.replace('AC', '').charAt(0));
+						return numAnnee === year;
+					});
+
+					if (acsForYear.length === 0) {
+						yearList.innerHTML = `<p class="ac-empty-text">Aucun apprentissage critique répertorié pour l'Année ${year}.</p>`;
+					} else {
+						acsForYear.forEach(item => {
+							const texteComplet = glossaireAC[item.code] || "Apprentissage critique validé.";
+							const statusText = item.statut === 'maitrise' ? 'Maîtrisé' : 'Non maîtrisé';
+
+							const acItem = document.createElement('div');
+							acItem.className = `ac-item ${item.statut}`;
+							acItem.innerHTML = `
+								<p class="ac-text"><strong>${item.code}</strong> — ${texteComplet}</p>
+								<span class="ac-status">${statusText}</span>
+							`;
+							yearList.appendChild(acItem);
+						});
+					}
+					listsWrapper.appendChild(yearList);
+				});
+
+				// 4. Écouteur de clics pour alterner entre Année 1, 2 et 3
+				tabsWrapper.querySelectorAll('.year-tab-btn').forEach(btn => {
+					btn.addEventListener('click', () => {
+						tabsWrapper.querySelectorAll('.year-tab-btn').forEach(b => b.classList.remove('active'));
+						listsWrapper.querySelectorAll('.ac-list').forEach(l => l.classList.remove('active'));
+
+						btn.classList.add('active');
+						applyActiveTabColor(btn);
+
+						const selectedYear = btn.getAttribute('data-year');
+						listsWrapper.querySelector(`.year-content-${selectedYear}`).classList.add('active');
+					});
+				});
+
+				// Ouverture finale de la popup
+				skillsModal.classList.add('open');
+			}
+		});
+	});
+
+	// Fermeture au clic sur la croix
+	closeSkillsBtn.addEventListener('click', () => {
+		skillsModal.classList.remove('open');
+	});
+
+	// Fermeture au clic à l'extérieur de la popup blanche
+	skillsModal.addEventListener('click', (e) => {
+		if (e.target === skillsModal) {
+			skillsModal.classList.remove('open');
+		}
+	});
+
     // Ajustement de la ligne de navigation au chargement et au redimensionnement
     moveIndicator(document.querySelector("nav a.active"));
     window.addEventListener("resize", () => moveIndicator(document.querySelector("nav a.active")));
