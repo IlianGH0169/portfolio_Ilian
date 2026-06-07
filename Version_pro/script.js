@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Calcul initial au chargement de la page
     updateProjectCounters();
+    //updateSkillsProgress(); 
 
     // Recalcul automatique lors d'un clic sur les onglets de semestres
     document.querySelectorAll(".projet-tab-btn").forEach(btn => {
@@ -277,11 +278,11 @@ document.addEventListener("DOMContentLoaded", () => {
 	// Données textuelles pour la popup des compétences structurées par AC et statut
 	const detailsCompetences = {
 		dev: {
-			title: "Développement d'Applications & Web",
+			title: "Réaliser (une application)",
 			badge: "Compétence 1",
 			color: "#0369a1",
 			bg: "#e0f2fe",
-			text: "Cette compétence valide ma capacité à concevoir, coder et tester des applications robustes.",
+			text: "Compétence visant à développer, et coder des applications.",
 			ac: [
 				// Année 1
 				{ code: "AC11.01", statut: "maitrise" },
@@ -292,7 +293,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				{ code: "AC21.01", statut: "maitrise" },
 				{ code: "AC21.02", statut: "maitrise" },
 				{ code: "AC21.03", statut: "maitrise" },
-				{ code: "AC21.04", statut: "non-maitrise" },
+				{ code: "AC21.04", statut: "maitrise" },
 				// Année 3 (Exemple à adapter ou vider si besoin)
 				{ code: "AC31.01", statut: "non-maitrise" },
 				{ code: "AC31.02", statut: "non-maitrise" },
@@ -300,35 +301,35 @@ document.addEventListener("DOMContentLoaded", () => {
 			]
 		},
 		opti: {
-			title: "Algorithmique & Optimisation",
+			title: "Optimiser (une application, un système)",
 			badge: "Compétence 2",
 			color: "#6b21a8",
 			bg: "#f3e8ff",
-			text: "Analyse et optimisation des performances de calcul et d'organisation des données.",
+			text: "Compétences visant à optimiser des scripts ou bien des codes.",
 			ac: [
 				{ code: "AC12.01", statut: "maitrise" },
 				{ code: "AC12.02", statut: "maitrise" },
 				{ code: "AC12.03", statut: "maitrise" },
 				{ code: "AC22.01", statut: "maitrise" },
-				{ code: "AC22.02", statut: "non-maitrise" },
-				{ code: "AC22.03", statut: "non-maitrise" },
-				{ code: "AC22.04", statut: "non-maitrise" }
+				{ code: "AC22.02", statut: "maitrise" },
+				{ code: "AC22.03", statut: "maitrise" },
+				{ code: "AC22.04", statut: "maitrise" }
 			]
 		},
 		sys: {
-			title: "Architecture Réseaux & Système",
+			title: "Administrer (un système)",
 			badge: "Compétence 3",
 			color: "#92400e",
 			bg: "#fef3c7",
-			text: "Installation, configuration et sécurisation des infrastructures informatiques.",
+			text: "Compétence visant à concevoir, installer et maintenir une infrastructure informatique.",
 			ac: [
 				{ code: "AC13.01", statut: "maitrise" },
 				{ code: "AC13.02", statut: "maitrise" },
 				{ code: "AC13.03", statut: "maitrise" },
 				{ code: "AC13.04", statut: "maitrise" },
-				{ code: "AC23.01", statut: "non-maitrise" },
-				{ code: "AC23.02", statut: "non-maitrise" },
-				{ code: "AC23.03", statut: "non-maitrise" },
+				{ code: "AC23.01", statut: "maitrise" },
+				{ code: "AC23.02", statut: "maitrise" },
+				{ code: "AC23.03", statut: "maitrise" },
 				{ code: "AC33.01", statut: "non-maitrise" },
 				{ code: "AC33.02", statut: "non-maitrise" },
 				{ code: "AC33.03", statut: "non-maitrise" },
@@ -336,52 +337,52 @@ document.addEventListener("DOMContentLoaded", () => {
 			]
 		},
 		data: {
-			title: "Bases de Données & Data Science",
+			title: "Gérer (des données)",
 			badge: "Compétence 4",
 			color: "#166534",
 			bg: "#dcfce7",
-			text: "Modélisation, manipulation et sécurisation des données de l'entreprise.",
+			text: "Compétence visant à exploiter une base de données.",
 			ac: [
 				{ code: "AC14.01", statut: "maitrise" },
 				{ code: "AC14.02", statut: "maitrise" },
 				{ code: "AC14.03", statut: "maitrise" },
 				{ code: "AC24.01", statut: "maitrise" },
 				{ code: "AC24.02", statut: "maitrise" },
-				{ code: "AC24.03", statut: "non-maitrise" },
-				{ code: "AC24.04", statut: "non-maitrise" }
+				{ code: "AC24.03", statut: "maitrise" },
+				{ code: "AC24.04", statut: "maitrise" }
 			]
 		},
 		mgmt: {
-			title: "Gestion de Projet & Méthodes Agiles",
+			title: "Conduire (un projet)",
 			badge: "Compétence 5",
 			color: "#e11d48",
 			bg: "#e11d4812",
-			text: "Planification, suivi et management d'un cycle de développement informatique.",
+			text: "Compétence visant à mener un bien un projet, en utilisant des outils de management.",
 			ac: [
 				{ code: "AC15.01", statut: "maitrise" },
 				{ code: "AC15.02", statut: "maitrise" },
 				{ code: "AC15.03", statut: "maitrise" },
-				{ code: "AC25.01", statut: "non maitrise" },
+				{ code: "AC25.01", statut: "maitrise" },
 				{ code: "AC25.02", statut: "maitrise" },
 				{ code: "AC25.03", statut: "maitrise" },
-				{ code: "AC25.04", statut: "non-maitrise" }
+				{ code: "AC25.04", statut: "maitrise" }
 			]
 		},
 		prof: {
-			title: "Communication & Posture Pro",
+			title: "Collaborer (en équipe)",
 			badge: "Compétence 6",
 			color: "#475569",
 			bg: "#f1f5f9",
-			text: "Développement des soft-skills et intégration dans l'écosystème numérique.",
+			text: "Compétence visant à collaborer en équipe et à avoir un comportement professionnel.",
 			ac: [
 				{ code: "AC16.01", statut: "maitrise" },
 				{ code: "AC16.02", statut: "maitrise" },
 				{ code: "AC16.03", statut: "maitrise" },
 				{ code: "AC16.04", statut: "maitrise" },
-				{ code: "AC26.01", statut: "non-maitrise" },
-				{ code: "AC26.02", statut: "non-maitrise" },
-				{ code: "AC26.03", statut: "non-maitrise" },
-				{ code: "AC26.04", statut: "non-maitrise" },
+				{ code: "AC26.01", statut: "maitrise" },
+				{ code: "AC26.02", statut: "maitrise" },
+				{ code: "AC26.03", statut: "maitrise" },
+				{ code: "AC26.04", statut: "maitrise" },
 				{ code: "AC36.01", statut: "non-maitrise" },
 				{ code: "AC36.02", statut: "non-maitrise" },
 				{ code: "AC36.03", statut: "non-maitrise" },
@@ -511,6 +512,42 @@ document.addEventListener("DOMContentLoaded", () => {
 			skillsModal.classList.remove('open');
 		}
 	});
+
+	// =========================================================
+    // FONCTION DE CALCUL DYNAMIQUE DU POURCENTAGE DES COMPÉTENCES
+    // =========================================================
+    function updateSkillsProgress() {
+        for (const key in detailsCompetences) {
+            const competence = detailsCompetences[key];
+            
+            if (competence.ac && competence.ac.length > 0) {
+                const totalAC = competence.ac.length;
+                // Compte uniquement les AC qui ont le statut "maitrise"
+                const masteredAC = competence.ac.filter(item => item.statut === 'maitrise').length;
+                
+                // Calcul du pourcentage avec arrondi à l'unité supérieure (Math.ceil)
+                const pourcentage = Math.ceil((masteredAC / totalAC) * 100);
+                
+                // Sélection de la carte HTML correspondante
+                const card = document.querySelector(`.progress-card[data-skill="${key}"]`);
+                if (card) {
+                    const fillElement = card.querySelector('.progress-fill');
+                    const percentageElement = card.querySelector('.progress-percentage');
+                    
+                    // Mise à jour visuelle de la jauge (largeur) et du texte (%)
+                    if (fillElement) {
+                        fillElement.style.width = `${pourcentage}%`;
+                    }
+                    if (percentageElement) {
+                        percentageElement.textContent = `${pourcentage}%`;
+                    }
+                }
+            }
+        }
+    }
+
+    // On lance le calcul ici, maintenant que "detailsCompetences" est bien créé plus haut !
+    updateSkillsProgress();
 
     // Ajustement de la ligne de navigation au chargement et au redimensionnement
     moveIndicator(document.querySelector("nav a.active"));
